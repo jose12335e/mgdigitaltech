@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from './sections/Navbar';
 import { HeroSection } from './sections/HeroSection';
-import { AboutSection } from './sections/AboutSection';
 import { ServicesSection } from './sections/ServicesSection';
 import { PortfolioSection } from './sections/PortfolioSection';
 import { ProcessSection } from './sections/ProcessSection';
@@ -21,7 +20,6 @@ function App() {
       
       <main>
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
         <BenefitsSection />
         <PortfolioSection />
