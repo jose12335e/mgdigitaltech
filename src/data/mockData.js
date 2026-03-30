@@ -93,7 +93,12 @@ export const mockData = {
     {
       id: "basic",
       tierKey: "pricing.p1_tier",
-      priceKey: "pricing.p1_price",
+      descKey: "pricing.p1_desc",
+      priceOriginalKey: "pricing.p1_price_original",
+      pricePromoKey: "pricing.p1_price_promo",
+      urgencyKey: "pricing.p1_urgency",
+      badgeKey: "pricing.p1_badge",
+      ctaKey: "pricing.p1_cta",
       features: [
         "pricing.p1_f1",
         "pricing.p1_f2",
@@ -106,7 +111,12 @@ export const mockData = {
     {
       id: "pro",
       tierKey: "pricing.p2_tier",
-      priceKey: "pricing.p2_price",
+      descKey: "pricing.p2_desc",
+      priceOriginalKey: "pricing.p2_price_original",
+      pricePromoKey: "pricing.p2_price_promo",
+      urgencyKey: "pricing.p2_urgency",
+      badgeKey: "pricing.p2_badge",
+      ctaKey: "pricing.p2_cta",
       features: [
         "pricing.p2_f1",
         "pricing.p2_f2",
