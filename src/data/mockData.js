@@ -5,7 +5,7 @@ export const mockData = {
     name: "MGtechAD",
     role: "Senior Frontend Engineer",
     tagline: "Construyendo experiencias digitales escalables, accesibles y visualmente atractivas.",
-    about: "Soy un ingeniero de software especializado en el ecosistema React. Me apasiona transformar problemas complejos en interfaces intuitivas y de alto rendimiento. Con más de 5 años de experiencia, ayudo a empresas a escalar sus productos digitales.",
+    about: "Soy desarrollador de software especializado en la creación de aplicaciones móviles, sistemas web y soluciones digitales eficientes. Trabajo con tecnologías como React Native, Flutter y Firebase, enfocándome en construir productos funcionales, rápidos y escalables.",
     email: "mgtechad@gmail.com",
     phone: "849-627-3605"
   },

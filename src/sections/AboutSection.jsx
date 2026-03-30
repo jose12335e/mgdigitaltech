@@ -24,8 +24,8 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <p className="font-bold text-xl">🚀 +5 Años</p>
-                  <p className="text-white/80 text-sm">Experiencia creando productos digitales</p>
+                  <p className="font-bold text-xl">🚀 +1 Año</p>
+                  <p className="text-white/80 text-sm">Desarrollando proyectos digitales</p>
                 </div>
               </div>
             </div>
@@ -43,23 +43,26 @@ export function AboutSection() {
               alignment="left"
               className="mb-6"
             />
-            <div className="prose prose-lg dark:prose-invert text-foreground/80">
+            <div className="prose prose-lg dark:prose-invert text-foreground/80 space-y-4">
               <p className="leading-relaxed">
                 {about}
               </p>
-              <p className="mt-4 leading-relaxed">
-                Mi enfoque no se limita a escribir código, sino a entender las necesidades del negocio para ofrecer soluciones técnicas sólidas que impacten directamente en la conversión y la experiencia del usuario final.
+              <p className="leading-relaxed">
+                He desarrollado proyectos como aplicaciones de control de gastos, sistemas de gestión empresarial y plataformas digitales orientadas a mejorar la productividad y organización.
+              </p>
+              <p className="leading-relaxed">
+                Mi enfoque va más allá del código: analizo problemas reales para diseñar soluciones tecnológicas que aporten valor y resultados concretos.
               </p>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-6">
               <div className="border-l-2 border-primary-500 pl-4">
-                <p className="text-3xl font-bold text-foreground">50+</p>
-                <p className="text-sm text-foreground/70 mt-1">Proyectos completados</p>
+                <p className="text-3xl font-bold text-foreground">10+</p>
+                <p className="text-sm text-foreground/70 mt-1">Proyectos realizados</p>
               </div>
               <div className="border-l-2 border-primary-500 pl-4">
                 <p className="text-3xl font-bold text-foreground">100%</p>
-                <p className="text-sm text-foreground/70 mt-1">Clientes satisfechos</p>
+                <p className="text-sm text-foreground/70 mt-1">Compromiso con cada proyecto</p>
               </div>
             </div>
           </motion.div>
