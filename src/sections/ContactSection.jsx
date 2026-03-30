@@ -100,12 +100,20 @@ export function ContactSection() {
                 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium text-foreground">Asunto</label>
-                  <input 
-                    type="text" 
+                  <select 
                     id="subject" 
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow"
-                    placeholder="¿De qué trata tu proyecto?"
-                  />
+                    defaultValue=""
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow appearance-none"
+                    required
+                  >
+                    <option value="" disabled>¿De qué trata tu proyecto?</option>
+                    <option value="Landing Page corporativa">Landing Page / Web corporativa</option>
+                    <option value="Tienda Online (E-commerce)">Tienda Online (E-commerce)</option>
+                    <option value="Aplicación Web a medida">Aplicación Web a medida</option>
+                    <option value="Mantenimiento y Soporte">Mantenimiento y Soporte</option>
+                    <option value="Auditoría / Consultoría SEO">Auditoría / Consultoría SEO</option>
+                    <option value="Otro tipo de proyecto">Otro tipo de proyecto</option>
+                  </select>
                 </div>
                 
                 <div className="space-y-2">
