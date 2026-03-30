@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "../components/ui/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Card } from "../components/ui/Card";
@@ -5,9 +6,46 @@ import { Button } from "../components/ui/Button";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { mockData } from "../data/mockData";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 export function ContactSection() {
   const { email, phone } = mockData.personalInfo;
+  const [formStatus, setFormStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus("submitting");
+
+    const formData = new FormData(e.target);
+
+    const templateParams = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      projectType: formData.get("subject"),
+      message: formData.get("message")
+    };
+
+    try {
+      const response = await emailjs.send(
+        'service_pntkso8',
+        'template_9h8vrvb',
+        templateParams,
+        '0u6gw7DoZrcoEnTx3'
+      );
+
+      if (response.status === 200) {
+        setFormStatus("success");
+        e.target.reset();
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        setFormStatus("idle");
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setFormStatus("error");
+      setTimeout(() => setFormStatus("idle"), 5000);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 bg-background">
@@ -76,13 +114,15 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             <Card className="p-8">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">Nombre</label>
                     <input 
                       type="text" 
                       id="name" 
+                      name="name"
+                      required
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow"
                       placeholder="Tu nombre"
                     />
@@ -92,6 +132,8 @@ export function ContactSection() {
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
+                      required
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow"
                       placeholder="tu@email.com"
                     />
@@ -102,6 +144,7 @@ export function ContactSection() {
                   <label htmlFor="subject" className="text-sm font-medium text-foreground">Asunto</label>
                   <select 
                     id="subject" 
+                    name="subject"
                     defaultValue=""
                     className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow appearance-none"
                     required
@@ -120,15 +163,35 @@ export function ContactSection() {
                   <label htmlFor="message" className="text-sm font-medium text-foreground">Mensaje</label>
                   <textarea 
                     id="message" 
+                    name="message"
+                    required
                     rows={4}
                     className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow resize-none"
                     placeholder="Cuéntame más sobre tu idea..."
                   />
                 </div>
                 
-                <Button type="submit" className="w-full" size="lg">
-                  Enviar Mensaje
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  size="lg"
+                  disabled={formStatus === "submitting" || formStatus === "success"}
+                >
+                  {formStatus === "idle" && "Enviar Mensaje"}
+                  {formStatus === "submitting" && "Enviando..."}
+                  {formStatus === "success" && "¡Mensaje Enviado!"}
+                  {formStatus === "error" && "Error al enviar (intenta de nuevo)"}
                 </Button>
+                
+                {formStatus === 'success' && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    className="text-emerald-500 text-sm text-center mt-4 font-medium"
+                  >
+                    ¡Gracias! He recibido tu mensaje. Me pondré en contacto muy pronto.
+                  </motion.p>
+                )}
               </form>
             </Card>
           </motion.div>
