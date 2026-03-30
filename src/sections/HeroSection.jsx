@@ -58,7 +58,7 @@ export function HeroSection() {
             Hablemos de tu proyecto
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
-          <Button size="lg" variant="outline" href="#portfolio">
+          <Button size="lg" variant="outline" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
             Ver portfolio
           </Button>
         </motion.div>
