@@ -7,44 +7,40 @@
     "contact": "Contact"
   },
   "hero": {
-    "available": "Available for new projects",
-    "greeting": "Hi, I'm {{name}}.",
-    "cta": "Let's discuss your project",
-    "portfolio": "View portfolio",
+    "available": "Helping businesses grow",
+    "greeting": "I build websites and apps",
+    "cta": "Request project",
+    "portfolio": "View services",
     "scroll": "Scroll down"
   },
   "personal": {
-    "role": "Senior Frontend Engineer",
-    "tagline": "Building scalable, accessible, and visually stunning digital experiences.",
-    "about": "I am a software developer specialized in creating efficient mobile applications, web systems, and digital solutions. I work with technologies like React Native, Flutter, and Firebase, focusing on building functional, fast, and scalable products."
+    "role": "that help your business grow",
+    "tagline": "I help entrepreneurs, businesses, and brands establish a digital presence with modern, fast, and professional websites, systems, and solutions.",
+    "about": "I am a software developer focused on creating functional websites, applications, and digital solutions. I use modern tools to build projects that help businesses and entrepreneurs get organized, showcase their services, and grow digitally."
   },
   "about": {
     "title": "About me",
-    "subtitle": "Getting to know the developer",
-    "badge_years": "🚀 1+ Year",
-    "badge_exp": "Developing digital projects",
-    "p1": "I have developed projects such as expense tracking applications, business management systems, and digital platforms aimed at improving productivity and organization.",
-    "p2": "My approach goes beyond code: I analyze real-world problems to design technological solutions that provide value and concrete results.",
-    "stat1_value": "10+",
-    "stat1_label": "Projects completed",
-    "stat2_value": "100%",
-    "stat2_label": "Commitment to every project"
+    "subtitle": "Learn how I can help you",
+    "badge_years": "🚀 Results driven",
+    "badge_exp": "Building useful solutions",
+    "p1": "I am a software developer focused on creating functional websites, applications, and digital solutions. I use modern tools to build projects that help businesses and entrepreneurs get organized, showcase their services, and grow digitally.",
+    "p2": "My approach goes beyond simply writing code; it's about understanding what each project needs to turn an idea into a clear, useful, and professional solution.",
+    "stat1_value": "100%",
+    "stat1_label": "Focus on your business",
+    "stat2_value": "10+",
+    "stat2_label": "Growing clients"
   },
   "services": {
     "title": "My services",
-    "subtitle": "What I can do for you",
-    "s1_title": "Frontend Development",
-    "s1_desc": "Building SPA and SSR web applications using React, Next.js, and modern architectures.",
-    "s2_title": "Integrated UI/UX Design",
-    "s2_desc": "Creating clean interfaces and coherent design systems using tools like Tailwind CSS.",
-    "s3_title": "Performance Optimization",
-    "s3_desc": "Performance audits, lazy loading, and improving Core Web Vitals metrics.",
-    "s4_title": "Mobile Development",
-    "s4_desc": "Cross-platform applications with React Native offering fluid native experiences.",
-    "s5_title": "Scalable Architecture",
-    "s5_desc": "Designing maintainable and efficient codebases prepared to grow with your business.",
-    "s6_title": "Consulting and SEO",
-    "s6_desc": "Technical advice and positioning strategies for modern applications."
+    "subtitle": "How I can help you grow",
+    "s1_title": "Website Creation",
+    "s1_desc": "I design modern, fast, and mobile-friendly websites to showcase your business professionally.",
+    "s2_title": "App and System Development",
+    "s2_desc": "I build web applications and systems to help you organize processes, automate tasks, and manage your business better.",
+    "s3_title": "Business Systems",
+    "s3_desc": "I develop custom tools for customer management, expense tracking, inventory, and other business needs.",
+    "s4_title": "Digital Presence Improvement",
+    "s4_desc": "I help you establish a clear, professional online presence ready to attract more customers."
   },
   "portfolio": {
     "title": "Success Stories",
@@ -71,15 +67,15 @@
   },
   "benefits": {
     "title": "Why choose me",
-    "subtitle": "Added value",
-    "b1_title": "Scalable Code",
-    "b1_desc": "Clean architecture and modular components ready to grow.",
-    "b2_title": "Responsive Design",
-    "b2_desc": "Fluid experiences on any device, mobile or desktop.",
-    "b3_title": "Top Performance",
-    "b3_desc": "Core Web Vitals audits and fast loading times.",
-    "b4_title": "Security & Quality",
-    "b4_desc": "Best practices, static typing, and proper data handling."
+    "subtitle": "Benefits of working together",
+    "b1_title": "Custom Solutions",
+    "b1_desc": "Every tool is built from scratch to adapt to what you truly need and solve your specific problems.",
+    "b2_title": "Mobile Friendly",
+    "b2_desc": "Your websites and systems will look perfect and work flawlessly on any mobile device or large screen.",
+    "b3_title": "Fast and Secure",
+    "b3_desc": "Platforms designed to load in seconds so your users never get frustrated, while ensuring sensitive data is secure.",
+    "b4_title": "Support and Peace of Mind",
+    "b4_desc": "I guarantee you will know how to use everything upon delivery, and you will always have my support if you need help."
   },
   "pricing": {
     "title": "Detailed plans",

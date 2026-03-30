@@ -7,44 +7,40 @@
     "contact": "Contacto"
   },
   "hero": {
-    "available": "Disponible para nuevos proyectos",
-    "greeting": "Hola, soy {{name}}.",
-    "cta": "Hablemos de tu proyecto",
-    "portfolio": "Ver portafolio",
+    "available": "Ayudando a negocios",
+    "greeting": "Creo páginas web y aplicaciones",
+    "cta": "Solicitar proyecto",
+    "portfolio": "Ver servicios",
     "scroll": "Desplázate hacia abajo"
   },
   "personal": {
-    "role": "Ingeniero Frontend Senior",
-    "tagline": "Construyendo experiencias digitales escalables, accesibles y visualmente atractivas.",
-    "about": "Soy desarrollador de software especializado en la creación de aplicaciones móviles, sistemas web y soluciones digitales eficientes. Trabajo con tecnologías como React Native, Flutter y Firebase, enfocándome en construir productos funcionales, rápidos y escalables."
+    "role": "que ayudan a tu negocio a crecer",
+    "tagline": "Ayudo a emprendedores, negocios y marcas a tener presencia digital con páginas web, sistemas y soluciones modernas, rápidas y profesionales.",
+    "about": "Soy desarrollador de software enfocado en la creación de páginas web, aplicaciones y soluciones digitales funcionales. Trabajo con herramientas modernas para desarrollar proyectos que ayuden a negocios y emprendedores a organizarse mejor, mostrar sus servicios y crecer digitalmente."
   },
   "about": {
     "title": "Sobre mí",
-    "subtitle": "Conociendo al desarrollador",
-    "badge_years": "🚀 +1 Año",
-    "badge_exp": "Desarrollando proyectos digitales",
-    "p1": "He desarrollado proyectos como aplicaciones de control de gastos, sistemas de gestión empresarial y plataformas digitales orientadas a mejorar la productividad y organización.",
-    "p2": "Mi enfoque va más allá del código: analizo problemas reales para diseñar soluciones tecnológicas que aporten valor y resultados concretos.",
-    "stat1_value": "10+",
-    "stat1_label": "Proyectos realizados",
-    "stat2_value": "100%",
-    "stat2_label": "Compromiso con cada proyecto"
+    "subtitle": "Conoce cómo puedo ayudarte",
+    "badge_years": "🚀 Enfoque en resultados",
+    "badge_exp": "Creando soluciones útiles",
+    "p1": "Soy desarrollador de software enfocado en la creación de páginas web, aplicaciones y soluciones digitales funcionales. Trabajo con herramientas modernas para desarrollar proyectos que ayuden a negocios y emprendedores a organizarse mejor, mostrar sus servicios y crecer digitalmente.",
+    "p2": "Mi enfoque no es solo programar, sino entender lo que cada proyecto necesita para convertir una idea en una solución clara, útil y profesional.",
+    "stat1_value": "100%",
+    "stat1_label": "Enfoque en tu negocio",
+    "stat2_value": "10+",
+    "stat2_label": "Clientes creciendo"
   },
   "services": {
     "title": "Mis servicios",
-    "subtitle": "Lo que puedo hacer por ti",
-    "s1_title": "Desarrollo Frontend",
-    "s1_desc": "Construcción de aplicaciones web SPA y SSR utilizando React, Next.js y arquitecturas modernas.",
-    "s2_title": "Diseño UI/UX Integrado",
-    "s2_desc": "Creación de interfaces limpias y sistemas de diseño coherentes con herramientas como Tailwind CSS.",
-    "s3_title": "Optimización de Rendimiento",
-    "s3_desc": "Auditorías de rendimiento, carga diferida (lazy loading) y mejora de métricas Core Web Vitals.",
-    "s4_title": "Desarrollo Móvil",
-    "s4_desc": "Aplicaciones multiplataforma con React Native que ofrecen experiencias nativas fluidas.",
-    "s5_title": "Arquitectura Escalable",
-    "s5_desc": "Diseño de bases de código mantenibles y eficientes preparadas para crecer con tu negocio.",
-    "s6_title": "Consultoría y SEO",
-    "s6_desc": "Asesoramiento técnico y estrategias de posicionamiento para aplicaciones modernas."
+    "subtitle": "Cómo puedo ayudarte a crecer",
+    "s1_title": "Creación de páginas web",
+    "s1_desc": "Diseño páginas modernas, rápidas y adaptadas a celulares y computadoras para mostrar tu negocio de forma profesional.",
+    "s2_title": "Desarrollo de aplicaciones y sistemas",
+    "s2_desc": "Creo aplicaciones y sistemas web para ayudarte a organizar procesos, automatizar tareas y manejar mejor tu negocio.",
+    "s3_title": "Sistemas para negocios",
+    "s3_desc": "Desarrollo herramientas para control de clientes, gastos, inventario, registros y otras necesidades de tu empresa.",
+    "s4_title": "Mejora de presencia digital",
+    "s4_desc": "Te ayudo a tener una presencia online más clara, profesional y lista para atraer más clientes."
   },
   "portfolio": {
     "title": "Casos de Éxito",
@@ -71,15 +67,15 @@
   },
   "benefits": {
     "title": "Por qué elegirme",
-    "subtitle": "Valor añadido",
-    "b1_title": "Código Escalable",
-    "b1_desc": "Arquitectura limpia y componentes modulares listos para crecer.",
-    "b2_title": "Diseño Responsivo",
-    "b2_desc": "Experiencias fluidas en cualquier dispositivo, móvil o escritorio.",
-    "b3_title": "Rendimiento Óptimo",
-    "b3_desc": "Auditorías de Core Web Vitals y tiempos de carga rápidos.",
-    "b4_title": "Seguridad y Calidad",
-    "b4_desc": "Buenas prácticas, tipado y manejo correcto de datos."
+    "subtitle": "Beneficios de trabajar juntos",
+    "b1_title": "Soluciones a la medida",
+    "b1_desc": "Cada herramienta es construida desde cero para adaptarse a lo que realmente necesitas y resolver tus problemas directamente.",
+    "b2_title": "Adaptado a celulares",
+    "b2_desc": "Tus páginas y sistemas se verán perfectos y funcionarán excelente en cualquier dispositivo móvil o pantalla grande.",
+    "b3_title": "Rápido y Seguro",
+    "b3_desc": "Plataformas diseñadas para cargar en segundos para que tus usuarios no se desesperen y asegurando datos sensibles.",
+    "b4_title": "Soporte y Tranquilidad",
+    "b4_desc": "Te garantizo que al terminar el proyecto sabrás cómo utilizar todo, y siempre tendrás mi respaldo si necesitas ayuda."
   },
   "pricing": {
     "title": "Planes detallados",

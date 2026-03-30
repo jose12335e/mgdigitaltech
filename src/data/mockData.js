@@ -11,37 +11,25 @@ export const mockData = {
       id: 1,
       title: "services.s1_title",
       description: "services.s1_desc",
-      icon: Code,
+      icon: Globe,
     },
     {
       id: 2,
       title: "services.s2_title",
       description: "services.s2_desc",
-      icon: PenTool,
+      icon: Smartphone,
     },
     {
       id: 3,
       title: "services.s3_title",
       description: "services.s3_desc",
-      icon: Zap,
+      icon: Layers,
     },
     {
       id: 4,
       title: "services.s4_title",
       description: "services.s4_desc",
-      icon: Smartphone,
-    },
-    {
-      id: 5,
-      title: "services.s5_title",
-      description: "services.s5_desc",
-      icon: Layers,
-    },
-    {
-      id: 6,
-      title: "services.s6_title",
-      description: "services.s6_desc",
-      icon: Globe,
+      icon: Zap,
     }
   ],
   projects: [
