@@ -47,9 +47,6 @@ export function AboutSection() {
             />
             <div className="prose prose-lg dark:prose-invert text-foreground/80 space-y-4">
               <p className="leading-relaxed">
-                {t('personal.about')}
-              </p>
-              <p className="leading-relaxed">
                 {t('about.p1')}
               </p>
               <p className="leading-relaxed">
