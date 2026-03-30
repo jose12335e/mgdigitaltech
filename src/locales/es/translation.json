@@ -52,7 +52,10 @@
     "category_web": "Web App",
     "category_saas": "SaaS",
     "category_mobile": "Mobile",
-    "view_project": "Ver Proyecto"
+    "view_project": "Ver Proyecto",
+    "p1_title": "Panel E-commerce",
+    "p2_title": "Plataforma Fintech",
+    "p3_title": "App de Salud"
   },
   "process": {
     "title": "Cómo trabajo",

@@ -47,21 +47,21 @@ export const mockData = {
   projects: [
     {
       id: 1,
-      title: "E-commerce Dashboard",
+      titleKey: "portfolio.p1_title",
       categoryKey: "portfolio.category_web",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
       link: "#"
     },
     {
       id: 2,
-      title: "Fintech Platform",
+      titleKey: "portfolio.p2_title",
       categoryKey: "portfolio.category_saas",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       link: "#"
     },
     {
       id: 3,
-      title: "Health Tracking App",
+      titleKey: "portfolio.p3_title",
       categoryKey: "portfolio.category_mobile",
       image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
       link: "#"

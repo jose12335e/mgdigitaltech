@@ -52,7 +52,10 @@
     "category_web": "Web App",
     "category_saas": "SaaS",
     "category_mobile": "Mobile",
-    "view_project": "View Project"
+    "view_project": "View Project",
+    "p1_title": "E-commerce Dashboard",
+    "p2_title": "Fintech Platform",
+    "p3_title": "Health Tracking App"
   },
   "process": {
     "title": "How I work",

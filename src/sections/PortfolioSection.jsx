@@ -47,7 +47,7 @@ export function PortfolioSection() {
                     {t(project.categoryKey)}
                   </span>
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary-600 transition-colors">
-                    {project.title}
+                    {t(project.titleKey)}
                   </h3>
                 </div>
               </Card>
