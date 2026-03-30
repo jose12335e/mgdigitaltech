@@ -3,9 +3,10 @@ import { SectionHeading } from "../components/ui/SectionHeading";
 import { mockData } from "../data/mockData";
 import { motion } from "framer-motion";
 import profileImg from "../assets/IMG_7756.jpeg";
+import { useTranslation } from "react-i18next";
 
 export function AboutSection() {
-  const { about } = mockData.personalInfo;
+  const { t } = useTranslation();
 
   return (
     <section id="about" className="py-24 bg-surface">
@@ -25,8 +26,8 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <p className="font-bold text-xl">🚀 +1 Año</p>
-                  <p className="text-white/80 text-sm">Desarrollando proyectos digitales</p>
+                  <p className="font-bold text-xl">{t('about.badge_years')}</p>
+                  <p className="text-white/80 text-sm">{t('about.badge_exp')}</p>
                 </div>
               </div>
             </div>
@@ -39,31 +40,31 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
           >
             <SectionHeading 
-              title="Sobre mí" 
-              subtitle="Conociendo al desarrollador" 
+              title={t('about.title')} 
+              subtitle={t('about.subtitle')} 
               alignment="left"
               className="mb-6"
             />
             <div className="prose prose-lg dark:prose-invert text-foreground/80 space-y-4">
               <p className="leading-relaxed">
-                {about}
+                {t('personal.about')}
               </p>
               <p className="leading-relaxed">
-                He desarrollado proyectos como aplicaciones de control de gastos, sistemas de gestión empresarial y plataformas digitales orientadas a mejorar la productividad y organización.
+                {t('about.p1')}
               </p>
               <p className="leading-relaxed">
-                Mi enfoque va más allá del código: analizo problemas reales para diseñar soluciones tecnológicas que aporten valor y resultados concretos.
+                {t('about.p2')}
               </p>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-6">
               <div className="border-l-2 border-primary-500 pl-4">
-                <p className="text-3xl font-bold text-foreground">10+</p>
-                <p className="text-sm text-foreground/70 mt-1">Proyectos realizados</p>
+                <p className="text-3xl font-bold text-foreground">{t('about.stat1_value')}</p>
+                <p className="text-sm text-foreground/70 mt-1">{t('about.stat1_label')}</p>
               </div>
               <div className="border-l-2 border-primary-500 pl-4">
-                <p className="text-3xl font-bold text-foreground">100%</p>
-                <p className="text-sm text-foreground/70 mt-1">Compromiso con cada proyecto</p>
+                <p className="text-3xl font-bold text-foreground">{t('about.stat2_value')}</p>
+                <p className="text-sm text-foreground/70 mt-1">{t('about.stat2_label')}</p>
               </div>
             </div>
           </motion.div>

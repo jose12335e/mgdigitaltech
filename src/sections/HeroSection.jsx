@@ -3,9 +3,11 @@ import { Container } from "../components/ui/Container";
 import { Button } from "../components/ui/Button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { mockData } from "../data/mockData";
+import { useTranslation } from "react-i18next";
 
 export function HeroSection() {
   const { name, role, tagline } = mockData.personalInfo;
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -24,7 +26,7 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          Disponible para nuevos proyectos
+          {t('hero.available')}
         </motion.div>
 
         <motion.h1
@@ -33,9 +35,9 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
         >
-          Hola, soy {name}. <br />
+          {t('hero.greeting', { name: name })} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">
-            {role}
+            {t('personal.role')}
           </span>
         </motion.h1>
 
@@ -45,7 +47,7 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-foreground/70 max-w-2xl mb-10 leading-relaxed"
         >
-          {tagline}
+          {t('personal.tagline')}
         </motion.p>
 
         <motion.div
@@ -55,11 +57,11 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4"
         >
           <Button size="lg" className="group" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-            Hablemos de tu proyecto
+            {t('hero.cta')}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button size="lg" variant="outline" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
-            Ver portfolio
+            {t('hero.portfolio')}
           </Button>
         </motion.div>
 
@@ -69,7 +71,7 @@ export function HeroSection() {
           transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-foreground/50 animate-bounce"
         >
-          <span className="text-sm font-medium">Scroll down</span>
+          <span className="text-sm font-medium">{t('hero.scroll')}</span>
           <ChevronDown className="h-4 w-4" />
         </motion.div>
       </Container>

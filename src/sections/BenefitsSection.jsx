@@ -3,27 +3,30 @@ import { SectionHeading } from "../components/ui/SectionHeading";
 import { Card } from "../components/ui/Card";
 import { Code2, MonitorSmartphone, Rocket, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export function BenefitsSection() {
+  const { t } = useTranslation();
+
   const benefits = [
     {
-      title: "Código Escalable",
-      description: "Arquitectura limpia y componentes modulares listos para crecer.",
+      title: t('benefits.b1_title'),
+      description: t('benefits.b1_desc'),
       icon: Code2
     },
     {
-      title: "Diseño Responsive",
-      description: "Experiencias fluidas en cualquier dispositivo, móvil o escritorio.",
+      title: t('benefits.b2_title'),
+      description: t('benefits.b2_desc'),
       icon: MonitorSmartphone
     },
     {
-      title: "Rendimiento Óptimo",
-      description: "Auditorías de Core Web Vitals y tiempos de carga rápidos.",
+      title: t('benefits.b3_title'),
+      description: t('benefits.b3_desc'),
       icon: Rocket
     },
     {
-      title: "Seguridad y Calidad",
-      description: "Buenas prácticas, tipado y manejo correcto de datos.",
+      title: t('benefits.b4_title'),
+      description: t('benefits.b4_desc'),
       icon: ShieldCheck
     }
   ];
@@ -32,8 +35,8 @@ export function BenefitsSection() {
     <section className="py-24 bg-surface">
       <Container>
         <SectionHeading 
-          title="Por qué elegirme" 
-          subtitle="Valor añadido" 
+          title={t('benefits.title')}
+          subtitle={t('benefits.subtitle')}
         />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

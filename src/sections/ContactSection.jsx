@@ -7,8 +7,10 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { mockData } from "../data/mockData";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
+import { useTranslation } from "react-i18next";
 
 export function ContactSection() {
+  const { t } = useTranslation();
   const { email, phone } = mockData.personalInfo;
   const [formStatus, setFormStatus] = useState("idle");
 
@@ -51,8 +53,8 @@ export function ContactSection() {
     <section id="contact" className="py-24 bg-background">
       <Container>
         <SectionHeading 
-          title="Hablemos de tu proyecto" 
-          subtitle="Contacto" 
+          title={t('contact.subtitle')} 
+          subtitle={t('contact.title')} 
         />
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -64,9 +66,9 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">¿Tienes una idea en mente?</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">{t('contact.idea')}</h3>
               <p className="text-foreground/70 leading-relaxed mb-8">
-                Estoy disponible para proyectos freelance, consultoría o para unirme a un gran equipo. Escríbeme y responderé en menos de 24 horas.
+                {t('contact.desc')}
               </p>
             </div>
             
@@ -100,8 +102,8 @@ export function ContactSection() {
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground/50">Ubicación</p>
-                  <p className="text-lg font-semibold text-foreground">Remoto / Worldwide</p>
+                  <p className="text-sm font-medium text-foreground/50">{t('contact.location')}</p>
+                  <p className="text-lg font-semibold text-foreground">{t('contact.remote')}</p>
                 </div>
               </div>
             </div>
@@ -117,31 +119,29 @@ export function ContactSection() {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-foreground">Nombre</label>
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">{t('contact.name')}</label>
                     <input 
                       type="text" 
                       id="name" 
                       name="name"
                       required
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow"
-                      placeholder="Tu nombre"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">{t('contact.email')}</label>
                     <input 
                       type="email" 
                       id="email" 
                       name="email"
                       required
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow"
-                      placeholder="tu@email.com"
                     />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium text-foreground">Asunto</label>
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">{t('contact.subject')}</label>
                   <select 
                     id="subject" 
                     name="subject"
@@ -149,25 +149,25 @@ export function ContactSection() {
                     className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow appearance-none"
                     required
                   >
-                    <option value="" disabled>¿De qué trata tu proyecto?</option>
+                    <option value="" disabled>{t('contact.subject_placeholder')}</option>
                     <option value="Landing Page corporativa">Landing Page / Web corporativa</option>
                     <option value="Tienda Online (E-commerce)">Tienda Online (E-commerce)</option>
-                    <option value="Aplicación Web a medida">Aplicación Web a medida</option>
-                    <option value="Mantenimiento y Soporte">Mantenimiento y Soporte</option>
-                    <option value="Auditoría / Consultoría SEO">Auditoría / Consultoría SEO</option>
-                    <option value="Otro tipo de proyecto">Otro tipo de proyecto</option>
+                    <option value="Aplicación Web a medida">{t('contact.subject_web')}</option>
+                    <option value="Mantenimiento y Soporte">{t('contact.subject_maint')}</option>
+                    <option value="Auditoría / Consultoría SEO">{t('contact.subject_consult')}</option>
+                    <option value="Otro tipo de proyecto">{t('contact.subject_other')}</option>
                   </select>
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">Mensaje</label>
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">{t('contact.message')}</label>
                   <textarea 
                     id="message" 
                     name="message"
                     required
                     rows={4}
                     className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-shadow resize-none"
-                    placeholder="Cuéntame más sobre tu idea..."
+                    placeholder={t('contact.message_placeholder')}
                   />
                 </div>
                 
@@ -177,10 +177,10 @@ export function ContactSection() {
                   size="lg"
                   disabled={formStatus === "submitting" || formStatus === "success"}
                 >
-                  {formStatus === "idle" && "Enviar Mensaje"}
-                  {formStatus === "submitting" && "Enviando..."}
-                  {formStatus === "success" && "¡Mensaje Enviado!"}
-                  {formStatus === "error" && "Error al enviar (intenta de nuevo)"}
+                  {formStatus === "idle" && t('contact.send')}
+                  {formStatus === "submitting" && t('contact.sending')}
+                  {formStatus === "success" && t('contact.sent')}
+                  {formStatus === "error" && t('contact.error')}
                 </Button>
                 
                 {formStatus === 'success' && (
@@ -189,7 +189,7 @@ export function ContactSection() {
                     animate={{ opacity: 1, y: 0 }} 
                     className="text-emerald-500 text-sm text-center mt-4 font-medium"
                   >
-                    ¡Gracias! He recibido tu mensaje. Me pondré en contacto muy pronto.
+                    {t('contact.thanks')}
                   </motion.p>
                 )}
               </form>

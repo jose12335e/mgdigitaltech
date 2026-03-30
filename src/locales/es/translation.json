@@ -1,0 +1,162 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portfolio",
+    "process": "Proceso",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "available": "Disponible para nuevos proyectos",
+    "greeting": "Hola, soy {{name}}.",
+    "cta": "Hablemos de tu proyecto",
+    "portfolio": "Ver portfolio",
+    "scroll": "Scroll down"
+  },
+  "personal": {
+    "role": "Senior Frontend Engineer",
+    "tagline": "Construyendo experiencias digitales escalables, accesibles y visualmente atractivas.",
+    "about": "Soy desarrollador de software especializado en la creación de aplicaciones móviles, sistemas web y soluciones digitales eficientes. Trabajo con tecnologías como React Native, Flutter y Firebase, enfocándome en construir productos funcionales, rápidos y escalables."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Conociendo al desarrollador",
+    "badge_years": "🚀 +1 Año",
+    "badge_exp": "Desarrollando proyectos digitales",
+    "p1": "He desarrollado proyectos como aplicaciones de control de gastos, sistemas de gestión empresarial y plataformas digitales orientadas a mejorar la productividad y organización.",
+    "p2": "Mi enfoque va más allá del código: analizo problemas reales para diseñar soluciones tecnológicas que aporten valor y resultados concretos.",
+    "stat1_value": "10+",
+    "stat1_label": "Proyectos realizados",
+    "stat2_value": "100%",
+    "stat2_label": "Compromiso con cada proyecto"
+  },
+  "services": {
+    "title": "Mis servicios",
+    "subtitle": "Lo que puedo hacer por ti",
+    "s1_title": "Desarrollo Frontend",
+    "s1_desc": "Construcción de aplicaciones web SPA y SSR utilizando React, Next.js y arquitecturas modernas.",
+    "s2_title": "Diseño UI/UX Integrado",
+    "s2_desc": "Creación de interfaces limpias y sistemas de diseño coherentes con herramientas como Tailwind CSS.",
+    "s3_title": "Optimización de Rendimiento",
+    "s3_desc": "Auditorías de performance, lazy loading y mejora de métricas Core Web Vitals.",
+    "s4_title": "Desarrollo Móvil",
+    "s4_desc": "Aplicaciones multiplataforma con React Native ofreciendo experiencias nativas fluidas.",
+    "s5_title": "Arquitectura Escalable",
+    "s5_desc": "Diseño de bases de código mantenibles y eficientes preparadas para crecer con tu negocio.",
+    "s6_title": "Consultoría y SEO",
+    "s6_desc": "Asesoramiento técnico y estrategias de posicionamiento para aplicaciones modernas."
+  },
+  "portfolio": {
+    "title": "Casos de Éxito",
+    "subtitle": "Proyectos destacados",
+    "category_web": "Web App",
+    "category_saas": "SaaS",
+    "category_mobile": "Mobile",
+    "view_project": "Ver Proyecto"
+  },
+  "process": {
+    "title": "Cómo trabajo",
+    "subtitle": "Mi proceso de desarrollo",
+    "p1_title": "Descubrimiento",
+    "p1_desc": "Entendemos tus objetivos, público y requerimientos técnicos en profundidad.",
+    "p2_title": "Diseño & Prototipado",
+    "p2_desc": "Creamos wireframes y una propuesta visual clara antes de tirar código.",
+    "p3_title": "Desarrollo Ágil",
+    "p3_desc": "Implementación en sprints con entregas iterativas y feedback continuo.",
+    "p4_title": "Lanzamiento & Soporte",
+    "p4_desc": "Despliegue a producción, monitoreo y mantenimiento a largo plazo."
+  },
+  "benefits": {
+    "title": "Por qué elegirme",
+    "subtitle": "Valor añadido",
+    "b1_title": "Código Escalable",
+    "b1_desc": "Arquitectura limpia y componentes modulares listos para crecer.",
+    "b2_title": "Diseño Responsive",
+    "b2_desc": "Experiencias fluidas en cualquier dispositivo, móvil o escritorio.",
+    "b3_title": "Rendimiento Óptimo",
+    "b3_desc": "Auditorías de Core Web Vitals y tiempos de carga rápidos.",
+    "b4_title": "Seguridad y Calidad",
+    "b4_desc": "Buenas prácticas, tipado y manejo correcto de datos."
+  },
+  "pricing": {
+    "title": "Planes detallados",
+    "subtitle": "Precios transparentes",
+    "popular": "Popular",
+    "p1_tier": "Landing Page",
+    "p1_price": "Desde 990€",
+    "p1_f1": "Diseño personalizado",
+    "p1_f2": "Responsive design",
+    "p1_f3": "Formulario de contacto",
+    "p1_f4": "SEO On-Page básico",
+    "p1_f5": "1 Mes de soporte",
+    "p2_tier": "Web App Completa",
+    "p2_price": "Desde 2.500€",
+    "p2_f1": "Todo lo de Landing Page",
+    "p2_f2": "Panel de administración",
+    "p2_f3": "Integración de APIs",
+    "p2_f4": "Base de datos",
+    "p2_f5": "3 Meses de soporte prioritario"
+  },
+  "faq": {
+    "title": "Centro de Ayuda",
+    "subtitle": "Preguntas frecuentes",
+    "q1": "¿Cuánto tarda normalmente un proyecto?",
+    "a1": "Una landing page puede tomar de 2 a 3 semanas. Aplicaciones web más complejas suelen requerir entre 1 y 3 meses, dependiendo del alcance.",
+    "q2": "¿Trabajas con otras tecnologías aparte de React?",
+    "a2": "Sí, aunque mi especialidad es el ecosistema React (Next.js, Vite, React Native), también tengo experiencia con Vue y Node.js para el backend.",
+    "q3": "¿Ofreces mantenimiento después del lanzamiento?",
+    "a3": "¡Por supuesto! Mis planes superiores incluyen soporte, y también ofrezco planes de mantenimiento mensual personalizados."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos de tu proyecto",
+    "idea": "¿Tienes una idea en mente?",
+    "desc": "Estoy disponible para proyectos freelance, consultoría o para unirme a un gran equipo. Escríbeme y responderé en menos de 24 horas.",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "remote": "Remoto / Worldwide",
+    "name": "Nombre",
+    "email": "Email",
+    "subject": "Asunto",
+    "subject_placeholder": "¿De qué trata tu proyecto?",
+    "subject_maint": "Mantenimiento y Soporte",
+    "subject_web": "Desarrollo Web / App",
+    "subject_mobile": "Desarrollo App Móvil",
+    "subject_system": "Sistema a Medida / ERP",
+    "subject_other": "Otro / Consultoría",
+    "message": "Mensaje",
+    "message_placeholder": "Cuéntame más sobre tu idea...",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "sent": "¡Mensaje Enviado!",
+    "error": "Error al enviar (intenta de nuevo)",
+    "thanks": "¡Gracias! He recibido tu mensaje. Me pondré en contacto muy pronto."
+  },
+  "testimonials": {
+    "title": "Lo que dicen mis clientes",
+    "subtitle": "Testimonios reales",
+    "leave": "Dejar una Reseña",
+    "error_load": "No pudimos cargar los testimonios.",
+    "empty_title": "Aún no hay testimonios disponibles",
+    "empty_desc": "Sé el primero en contar tu experiencia trabajando conmigo.",
+    "leave_first": "Dejar el primer testimonio",
+    "modal_title": "Dejar un Testimonio",
+    "leave_desc": "Tu opinión es súper valiosa para mí. Cuéntame brevemente cómo fue tu experiencia trabajando juntos.",
+    "name": "Tu Nombre",
+    "role": "Cargo y Empresa",
+    "text": "Tu Testimonio",
+    "send": "Enviar Testimonio",
+    "sending": "Enviando...",
+    "sent": "¡Gracias por tu reseña!",
+    "error": "Hubo un error guardando tu testimonio. Por favor intenta de nuevo."
+  },
+  "whatsapp": {
+    "message": "Hola Jose, he visto tu portafolio y me gustaría hablar contigo sobre un proyecto."
+  },
+  "footer": {
+    "desc": "Diseñando y desarrollando aplicaciones web excepcionales que impulsan el crecimiento de los negocios.",
+    "links": "Enlaces Rápidos",
+    "rights": "Todos los derechos reservados.",
+    "built": "Construido con React, Vite y Tailwind CSS."
+  }
+}

@@ -4,14 +4,17 @@ import { Card } from "../components/ui/Card";
 import { mockData } from "../data/mockData";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export function PortfolioSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="portfolio" className="py-24 bg-surface">
       <Container>
         <SectionHeading 
-          title="Casos de Éxito" 
-          subtitle="Proyectos destacados" 
+          title={t('portfolio.title')} 
+          subtitle={t('portfolio.subtitle')} 
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -30,7 +33,7 @@ export function PortfolioSection() {
                       href={project.link}
                       className="inline-flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
                     >
-                      Ver Proyecto <ExternalLink className="h-4 w-4" />
+                      {t('portfolio.view_project')} <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
                   <img 
@@ -41,7 +44,7 @@ export function PortfolioSection() {
                 </div>
                 <div className="p-6">
                   <span className="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2 block">
-                    {project.category}
+                    {t(project.categoryKey)}
                   </span>
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary-600 transition-colors">
                     {project.title}

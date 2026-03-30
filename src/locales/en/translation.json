@@ -1,0 +1,162 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "greeting": "Hi, I'm {{name}}.",
+    "cta": "Let's discuss your project",
+    "portfolio": "View portfolio",
+    "scroll": "Scroll down"
+  },
+  "personal": {
+    "role": "Senior Frontend Engineer",
+    "tagline": "Building scalable, accessible, and visually stunning digital experiences.",
+    "about": "I am a software developer specialized in creating efficient mobile applications, web systems, and digital solutions. I work with technologies like React Native, Flutter, and Firebase, focusing on building functional, fast, and scalable products."
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Getting to know the developer",
+    "badge_years": "🚀 1+ Year",
+    "badge_exp": "Developing digital projects",
+    "p1": "I have developed projects such as expense tracking applications, business management systems, and digital platforms aimed at improving productivity and organization.",
+    "p2": "My approach goes beyond code: I analyze real-world problems to design technological solutions that provide value and concrete results.",
+    "stat1_value": "10+",
+    "stat1_label": "Projects completed",
+    "stat2_value": "100%",
+    "stat2_label": "Commitment to every project"
+  },
+  "services": {
+    "title": "My services",
+    "subtitle": "What I can do for you",
+    "s1_title": "Frontend Development",
+    "s1_desc": "Building SPA and SSR web applications using React, Next.js, and modern architectures.",
+    "s2_title": "Integrated UI/UX Design",
+    "s2_desc": "Creating clean interfaces and coherent design systems using tools like Tailwind CSS.",
+    "s3_title": "Performance Optimization",
+    "s3_desc": "Performance audits, lazy loading, and improving Core Web Vitals metrics.",
+    "s4_title": "Mobile Development",
+    "s4_desc": "Cross-platform applications with React Native offering fluid native experiences.",
+    "s5_title": "Scalable Architecture",
+    "s5_desc": "Designing maintainable and efficient codebases prepared to grow with your business.",
+    "s6_title": "Consulting and SEO",
+    "s6_desc": "Technical advice and positioning strategies for modern applications."
+  },
+  "portfolio": {
+    "title": "Success Stories",
+    "subtitle": "Featured projects",
+    "category_web": "Web App",
+    "category_saas": "SaaS",
+    "category_mobile": "Mobile",
+    "view_project": "View Project"
+  },
+  "process": {
+    "title": "How I work",
+    "subtitle": "My development process",
+    "p1_title": "Discovery",
+    "p1_desc": "We understand your goals, audience, and technical requirements in depth.",
+    "p2_title": "Design & Prototyping",
+    "p2_desc": "We create wireframes and a clear visual proposal before writing any code.",
+    "p3_title": "Agile Development",
+    "p3_desc": "Implementation in sprints with iterative deliveries and continuous feedback.",
+    "p4_title": "Launch & Support",
+    "p4_desc": "Deployment to production, monitoring, and long-term maintenance."
+  },
+  "benefits": {
+    "title": "Why choose me",
+    "subtitle": "Added value",
+    "b1_title": "Scalable Code",
+    "b1_desc": "Clean architecture and modular components ready to grow.",
+    "b2_title": "Responsive Design",
+    "b2_desc": "Fluid experiences on any device, mobile or desktop.",
+    "b3_title": "Top Performance",
+    "b3_desc": "Core Web Vitals audits and fast loading times.",
+    "b4_title": "Security & Quality",
+    "b4_desc": "Best practices, static typing, and proper data handling."
+  },
+  "pricing": {
+    "title": "Detailed plans",
+    "subtitle": "Transparent pricing",
+    "popular": "Popular",
+    "p1_tier": "Landing Page",
+    "p1_price": "From 990€",
+    "p1_f1": "Custom design",
+    "p1_f2": "Responsive design",
+    "p1_f3": "Contact form",
+    "p1_f4": "Basic On-Page SEO",
+    "p1_f5": "1 Month support",
+    "p2_tier": "Full Web App",
+    "p2_price": "From 2.500€",
+    "p2_f1": "Everything in Landing Page",
+    "p2_f2": "Admin dashboard",
+    "p2_f3": "API Integrations",
+    "p2_f4": "Database",
+    "p2_f5": "3 Months priority support"
+  },
+  "faq": {
+    "title": "Help Center",
+    "subtitle": "Frequently asked questions",
+    "q1": "How long does a project usually take?",
+    "a1": "A landing page can take 2 to 3 weeks. More complex web applications usually require between 1 and 3 months, depending on the scope.",
+    "q2": "Do you work with other technologies besides React?",
+    "a2": "Yes, although my specialty is the React ecosystem (Next.js, Vite, React Native), I also have experience with Vue and Node.js for the backend.",
+    "q3": "Do you offer maintenance after launch?",
+    "a3": "Of course! My higher-tier plans include support, and I also offer custom monthly maintenance plans."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's discuss your project",
+    "idea": "Do you have an idea in mind?",
+    "desc": "I'm available for freelance projects, consulting, or joining a great team. Write to me and I will reply in less than 24 hours.",
+    "phone": "Phone",
+    "location": "Location",
+    "remote": "Remote / Worldwide",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "subject_placeholder": "What is your project about?",
+    "subject_maint": "Maintenance and Support",
+    "subject_web": "Web / App Development",
+    "subject_mobile": "Mobile App Development",
+    "subject_system": "Custom System / ERP",
+    "subject_other": "Other / Consulting",
+    "message": "Message",
+    "message_placeholder": "Tell me more about your idea...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "sent": "Message Sent!",
+    "error": "Error sending (try again)",
+    "thanks": "Thanks! I have received your message. I will contact you very soon."
+  },
+  "testimonials": {
+    "title": "What my clients say",
+    "subtitle": "Real testimonials",
+    "leave": "Leave a Review",
+    "error_load": "We couldn't load the testimonials.",
+    "empty_title": "No testimonials available yet",
+    "empty_desc": "Be the first to tell your experience working with me.",
+    "leave_first": "Leave the first testimonial",
+    "modal_title": "Leave a Testimonial",
+    "leave_desc": "Your opinion is super valuable to me. Tell me briefly how your experience was working together.",
+    "name": "Your Name",
+    "role": "Role and Company",
+    "text": "Your Testimonial",
+    "send": "Submit Testimonial",
+    "sending": "Submitting...",
+    "sent": "Thanks for your review!",
+    "error": "There was an error saving your testimonial. Please try again."
+  },
+  "whatsapp": {
+    "message": "Hi Jose, I saw your portfolio and would like to talk to you about a project."
+  },
+  "footer": {
+    "desc": "Designing and developing exceptional web applications that drive business growth.",
+    "links": "Quick Links",
+    "rights": "All rights reserved.",
+    "built": "Built with React, Vite and Tailwind CSS."
+  }
+}

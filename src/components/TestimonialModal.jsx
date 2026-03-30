@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle2, MessageSquareQuote } from 'lucide-react';
 import { Button } from './ui/Button';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 export function TestimonialModal({ isOpen, onClose }) {
   const [formStatus, setFormStatus] = useState('idle');
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isOpen) {
@@ -52,7 +54,7 @@ export function TestimonialModal({ isOpen, onClose }) {
     } catch (error) {
       console.error('Supabase Insert Error:', error);
       setFormStatus('idle');
-      alert('Hubo un error guardando tu testimonio. Por favor intenta de nuevo.');
+      alert(t('testimonials.error', 'Hubo un error guardando tu testimonio. Por favor intenta de nuevo.'));
     }
   };
 
@@ -93,9 +95,9 @@ export function TestimonialModal({ isOpen, onClose }) {
             <div className="w-12 h-12 bg-primary-500/10 text-primary-500 rounded-full flex items-center justify-center mb-4">
               <MessageSquareQuote size={24} />
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-2">Dejar un Testimonio</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t('testimonials.modal_title')}</h3>
             <p className="text-foreground/70 text-sm">
-              Tu opinión es súper valiosa para mí. Cuéntame brevemente cómo fue tu experiencia trabajando juntos.
+              {t('testimonials.leave_desc')}
             </p>
           </div>
 
@@ -103,38 +105,35 @@ export function TestimonialModal({ isOpen, onClose }) {
           <div className="p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5 text-left">
-                <label htmlFor="name" className="text-sm font-medium text-foreground">Tu Nombre <span className="text-red-500">*</span></label>
+                <label htmlFor="name" className="text-sm font-medium text-foreground">{t('testimonials.name')} <span className="text-red-500">*</span></label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name"
                   required 
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-foreground"
-                  placeholder="Ej. María Gómez"
                 />
               </div>
 
               <div className="space-y-1.5 text-left">
-                <label htmlFor="role" className="text-sm font-medium text-foreground">Cargo y Empresa <span className="text-red-500">*</span></label>
+                <label htmlFor="role" className="text-sm font-medium text-foreground">{t('testimonials.role')} <span className="text-red-500">*</span></label>
                 <input 
                   type="text" 
                   id="role" 
                   name="role"
                   required 
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-foreground"
-                  placeholder="Ej. Directora de Marketing en XYZ"
                 />
               </div>
 
               <div className="space-y-1.5 text-left">
-                <label htmlFor="text" className="text-sm font-medium text-foreground">Tu Testimonio <span className="text-red-500">*</span></label>
+                <label htmlFor="text" className="text-sm font-medium text-foreground">{t('testimonials.text')} <span className="text-red-500">*</span></label>
                 <textarea 
                   id="text" 
                   name="text"
                   rows="4" 
                   required
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-foreground resize-y"
-                  placeholder="La plataforma superó mis expectativas..."
                 ></textarea>
               </div>
 
@@ -144,9 +143,9 @@ export function TestimonialModal({ isOpen, onClose }) {
                   className="w-full disabled:opacity-50"
                   disabled={formStatus === 'submitting' || formStatus === 'success'}
                 >
-                  {formStatus === 'idle' && <span className="flex items-center gap-2"><Send size={18} /> Enviar Testimonio</span>}
-                  {formStatus === 'submitting' && 'Enviando...'}
-                  {formStatus === 'success' && <span className="flex items-center gap-2"><CheckCircle2 size={18} /> ¡Gracias por tu reseña!</span>}
+                  {formStatus === 'idle' && <span className="flex items-center gap-2"><Send size={18} /> {t('testimonials.send')}</span>}
+                  {formStatus === 'submitting' && t('testimonials.sending', 'Enviando...')}
+                  {formStatus === 'success' && <span className="flex items-center gap-2"><CheckCircle2 size={18} /> {t('testimonials.sent', '¡Gracias por tu reseña!')}</span>}
                 </Button>
               </div>
             </form>

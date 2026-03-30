@@ -5,8 +5,11 @@ import { Button } from "../components/ui/Button";
 import { Check } from "lucide-react";
 import { mockData } from "../data/mockData";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export function PricingSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="pricing" className="py-24 bg-surface relative overflow-hidden">
       {/* Background decoration */}
@@ -14,8 +17,8 @@ export function PricingSection() {
       
       <Container className="relative z-10">
         <SectionHeading 
-          title="Planes Flexibles" 
-          subtitle="Inversión transparente" 
+          title={t('pricing.title')} 
+          subtitle={t('pricing.subtitle')} 
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -31,21 +34,21 @@ export function PricingSection() {
                 {plan.popular && (
                   <div className="absolute top-0 right-8 transform -translate-y-1/2">
                     <span className="bg-primary-600 text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-sm">
-                      Más Popular
+                      {t('pricing.popular')}
                     </span>
                   </div>
                 )}
                 
-                <h3 className="text-2xl font-bold text-foreground mb-2">{plan.tier}</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">{t(plan.tierKey)}</h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">{plan.price}</span>
+                  <span className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">{t(plan.priceKey)}</span>
                 </div>
                 
                 <ul className="space-y-4 mb-8 flex-grow">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 text-foreground/80">
                       <Check className="h-5 w-5 text-primary-500 shrink-0 mt-0.5" />
-                      <span>{feature}</span>
+                      <span>{t(feature)}</span>
                     </li>
                   ))}
                 </ul>
@@ -55,7 +58,7 @@ export function PricingSection() {
                   className="w-full"
                   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Empezar Ahora
+                  {t('pricing.book')}
                 </Button>
               </Card>
             </motion.div>

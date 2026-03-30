@@ -7,12 +7,14 @@ import { Quote, Loader2, MessageSquarePlus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "../lib/supabase";
 import { TestimonialModal } from "../components/TestimonialModal";
+import { useTranslation } from "react-i18next";
 
 export function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   // Fallback avatars locally generated based on name
   const getRandomAvatar = (name) => {
@@ -33,7 +35,7 @@ export function TestimonialsSection() {
       setTestimonials(data || []);
     } catch (err) {
       console.error("Error fetching testimonials:", err);
-      setError("No pudimos cargar los testimonios.");
+      setError(t('testimonials.error_load', 'No pudimos cargar los testimonios.'));
     } finally {
       setIsLoading(false);
     }
@@ -48,8 +50,8 @@ export function TestimonialsSection() {
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <SectionHeading 
-            title="Lo que dicen mis clientes" 
-            subtitle="Testimonios reales" 
+            title={t('testimonials.title')} 
+            subtitle={t('testimonials.subtitle')} 
           />
           <motion.div
              initial={{ opacity: 0, x: 20 }}
@@ -63,7 +65,7 @@ export function TestimonialsSection() {
               onClick={() => setIsModalOpen(true)}
               className="flex items-center gap-2"
             >
-              <MessageSquarePlus size={18} /> Dejar una Reseña
+              <MessageSquarePlus size={18} /> {t('testimonials.leave')}
             </Button>
           </motion.div>
         </div>
@@ -77,9 +79,9 @@ export function TestimonialsSection() {
         ) : testimonials.length === 0 ? (
            <div className="text-center py-20 px-4 bg-surface rounded-2xl border border-border">
              <MessageSquarePlus className="w-12 h-12 text-primary-500/50 mx-auto mb-4" />
-             <h3 className="text-lg font-medium text-foreground mb-2">Aún no hay testimonios disponibles</h3>
-             <p className="text-foreground/70 mb-6">Sé el primero en contar tu experiencia trabajando conmigo.</p>
-             <Button onClick={() => setIsModalOpen(true)}>Dejar el primer testimonio</Button>
+             <h3 className="text-lg font-medium text-foreground mb-2">{t('testimonials.empty_title', 'Aún no hay testimonios disponibles')}</h3>
+             <p className="text-foreground/70 mb-6">{t('testimonials.empty_desc', 'Sé el primero en contar tu experiencia trabajando conmigo.')}</p>
+             <Button onClick={() => setIsModalOpen(true)}>{t('testimonials.leave_first', 'Dejar el primer testimonio')}</Button>
            </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

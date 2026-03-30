@@ -3,11 +3,18 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { Container } from "../components/ui/Container";
 import { useTheme } from "../hooks/useTheme";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language.startsWith('es') ? 'en' : 'es';
+    i18n.changeLanguage(newLang);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +25,11 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", href: "#" },
-    { name: "Servicios", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Proceso", href: "#process" },
-    { name: "Contacto", href: "#contact" },
+    { name: t('navbar.home'), href: "#" },
+    { name: t('navbar.services'), href: "#services" },
+    { name: t('navbar.portfolio'), href: "#portfolio" },
+    { name: t('navbar.process'), href: "#process" },
+    { name: t('navbar.contact'), href: "#contact" },
   ];
 
   return (
@@ -56,6 +63,13 @@ export function Navbar() {
             ))}
             
             <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 text-sm font-bold bg-surface-hover rounded-md text-foreground/80 hover:text-primary-600 transition-colors uppercase"
+              aria-label="Toggle language"
+            >
+              {i18n.language.startsWith('en') ? 'EN' : 'ES'}
+            </button>
+            <button
               onClick={toggleTheme}
               className="p-2 rounded-full text-foreground/70 hover:bg-surface-hover hover:text-primary-600 transition-colors"
               aria-label="Toggle theme"
@@ -65,6 +79,12 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-1 text-sm font-bold bg-surface-hover rounded-md text-foreground/80 hover:text-primary-600 transition-colors uppercase"
+            >
+              {i18n.language.startsWith('en') ? 'EN' : 'ES'}
+            </button>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full text-foreground/70 hover:bg-surface-hover transition-colors"

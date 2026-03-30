@@ -3,47 +3,44 @@ import { Code, Smartphone, Globe, Layers, Zap, PenTool } from 'lucide-react';
 export const mockData = {
   personalInfo: {
     name: "Jose Magdiel Aracena",
-    role: "Senior Frontend Engineer",
-    tagline: "Construyendo experiencias digitales escalables, accesibles y visualmente atractivas.",
-    about: "Soy desarrollador de software especializado en la creación de aplicaciones móviles, sistemas web y soluciones digitales eficientes. Trabajo con tecnologías como React Native, Flutter y Firebase, enfocándome en construir productos funcionales, rápidos y escalables.",
     email: "mgtechad@gmail.com",
     phone: "849-627-3605"
   },
   services: [
     {
       id: 1,
-      title: "Desarrollo Frontend",
-      description: "Construcción de aplicaciones web SPA y SSR utilizando React, Next.js y arquitecturas modernas.",
+      title: "services.s1_title",
+      description: "services.s1_desc",
       icon: Code,
     },
     {
       id: 2,
-      title: "Diseño UI/UX Integrado",
-      description: "Creación de interfaces limpias y sistemas de diseño coherentes con herramientas como Tailwind CSS.",
+      title: "services.s2_title",
+      description: "services.s2_desc",
       icon: PenTool,
     },
     {
       id: 3,
-      title: "Optimización de Rendimiento",
-      description: "Auditorías de performance, lazy loading y mejora de métricas Core Web Vitals.",
+      title: "services.s3_title",
+      description: "services.s3_desc",
       icon: Zap,
     },
     {
       id: 4,
-      title: "Desarrollo Móvil",
-      description: "Aplicaciones multiplataforma con React Native ofreciendo experiencias nativas fluidas.",
+      title: "services.s4_title",
+      description: "services.s4_desc",
       icon: Smartphone,
     },
     {
       id: 5,
-      title: "Arquitectura Escalable",
-      description: "Diseño de bases de código mantenibles y eficientes preparadas para crecer con tu negocio.",
+      title: "services.s5_title",
+      description: "services.s5_desc",
       icon: Layers,
     },
     {
       id: 6,
-      title: "Consultoría y SEO",
-      description: "Asesoramiento técnico y estrategias de posicionamiento para aplicaciones modernas.",
+      title: "services.s6_title",
+      description: "services.s6_desc",
       icon: Globe,
     }
   ],
@@ -51,21 +48,21 @@ export const mockData = {
     {
       id: 1,
       title: "E-commerce Dashboard",
-      category: "Web App",
+      categoryKey: "portfolio.category_web",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
       link: "#"
     },
     {
       id: 2,
       title: "Fintech Platform",
-      category: "SaaS",
+      categoryKey: "portfolio.category_saas",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       link: "#"
     },
     {
       id: 3,
       title: "Health Tracking App",
-      category: "Mobile",
+      categoryKey: "portfolio.category_mobile",
       image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
       link: "#"
     }
@@ -73,81 +70,68 @@ export const mockData = {
   process: [
     {
       step: "01",
-      title: "Descubrimiento",
-      description: "Entendemos tus objetivos, público y requerimientos técnicos en profundidad."
+      title: "process.p1_title",
+      description: "process.p1_desc"
     },
     {
       step: "02",
-      title: "Diseño & Prototipado",
-      description: "Creamos wireframes y una propuesta visual clara antes de tirar código."
+      title: "process.p2_title",
+      description: "process.p2_desc"
     },
     {
       step: "03",
-      title: "Desarrollo Ágil",
-      description: "Implementación en sprints con entregas iterativas y feedback continuo."
+      title: "process.p3_title",
+      description: "process.p3_desc"
     },
     {
       step: "04",
-      title: "Lanzamiento & Soporte",
-      description: "Despliegue a producción, monitoreo y mantenimiento a largo plazo."
+      title: "process.p4_title",
+      description: "process.p4_desc"
     }
   ],
   pricing: [
     {
       id: "basic",
-      tier: "Landing Page",
-      price: "Desde 990€",
+      tierKey: "pricing.p1_tier",
+      priceKey: "pricing.p1_price",
       features: [
-        "Diseño personalizado",
-        "Responsive design",
-        "Formulario de contacto",
-        "SEO On-Page básico",
-        "1 Mes de soporte"
+        "pricing.p1_f1",
+        "pricing.p1_f2",
+        "pricing.p1_f3",
+        "pricing.p1_f4",
+        "pricing.p1_f5"
       ],
       popular: false
     },
     {
       id: "pro",
-      tier: "Web App Completa",
-      price: "Desde 2.500€",
+      tierKey: "pricing.p2_tier",
+      priceKey: "pricing.p2_price",
       features: [
-        "Todo lo de Landing Page",
-        "Panel de administración",
-        "Integración de APIs",
-        "Base de datos",
-        "3 Meses de soporte prioritario"
+        "pricing.p2_f1",
+        "pricing.p2_f2",
+        "pricing.p2_f3",
+        "pricing.p2_f4",
+        "pricing.p2_f5"
       ],
       popular: true
     }
   ],
   testimonials: [
-    {
-      id: 1,
-      name: "Laura Gómez",
-      role: "CEO, TechStart",
-      text: "El trabajo ha sido impecable. No solo entregó el proyecto a tiempo, sino que la calidad del código superó nuestras expectativas.",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      id: 2,
-      name: "Carlos Ruiz",
-      role: "Product Manager",
-      text: "Gran profesional. Su capacidad para entender requerimientos complejos y traducirlos en interfaces sencillas es increíble.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80"
-    }
+    // Supabase handles this natively now
   ],
   faq: [
     {
-      question: "¿Cuánto tarda normalmente un proyecto?",
-      answer: "Una landing page puede tomar de 2 a 3 semanas. Aplicaciones web más complejas suelen requerir entre 1 y 3 meses, dependiendo del alcance."
+      question: "faq.q1",
+      answer: "faq.a1"
     },
     {
-      question: "¿Trabajas con otras tecnologías aparte de React?",
-      answer: "Sí, aunque mi especialidad es el ecosistema React (Next.js, Vite, React Native), también tengo experiencia con Vue y Node.js para el backend."
+      question: "faq.q2",
+      answer: "faq.a2"
     },
     {
-      question: "¿Ofreces mantenimiento después del lanzamiento?",
-      answer: "¡Por supuesto! Mis planes superiores incluyen soporte, y también ofrezco planes de mantenimiento mensual personalizados."
+      question: "faq.q3",
+      answer: "faq.a3"
     }
   ]
 };
