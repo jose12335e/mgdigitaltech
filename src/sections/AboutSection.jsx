@@ -20,7 +20,7 @@ export function AboutSection() {
             <div className="relative aspect-square max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl border border-border/50">
               <img 
                 src={profileImg} 
-                alt="MGtechAD Portrait" 
+                alt="Jose Magdiel Aracena" 
                 className="object-cover w-full h-full object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
