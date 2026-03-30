@@ -2,6 +2,7 @@ import { Container } from "../components/ui/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { mockData } from "../data/mockData";
 import { motion } from "framer-motion";
+import profileImg from "../assets/IMG_7756.jpeg";
 
 export function AboutSection() {
   const { about } = mockData.personalInfo;
@@ -18,9 +19,9 @@ export function AboutSection() {
           >
             <div className="relative aspect-square max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl border border-border/50">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
-                alt="Alex Dev Portrait" 
-                className="object-cover w-full h-full"
+                src={profileImg} 
+                alt="MGtechAD Portrait" 
+                className="object-cover w-full h-full object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                 <div className="text-white">
