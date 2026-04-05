@@ -29,17 +29,17 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`relative ${plan.popular ? 'md:-mt-4 md:mb-4 z-10' : 'z-0 mt-4 h-full'}`}
+              className={`relative h-full ${plan.popular ? 'md:-mt-4 md:mb-4 z-10' : 'z-0 md:mt-4 mt-4'}`}
             >
               {/* Glow effect for popular plan */}
               {plan.popular && (
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-500 rounded-2xl blur opacity-25 hover:opacity-40 transition duration-1000"></div>
               )}
               
-              <Card className={`relative h-full flex flex-col p-8 transition-all hover:-translate-y-2 border ${plan.popular ? 'border-primary-500 shadow-2xl shadow-primary-500/20 bg-surface/90 backdrop-blur-sm' : 'border-border/50 hover:border-primary-500/30 shadow-lg'}`}>
+              <Card className={`overflow-visible relative h-full flex flex-col p-8 transition-all hover:-translate-y-2 border ${plan.popular ? 'border-primary-500 shadow-2xl shadow-primary-500/20 bg-surface/90 backdrop-blur-sm' : 'border-border/50 hover:border-primary-500/30 shadow-lg'}`}>
                 
                 {/* Visual Badges Container */}
-                <div className="absolute top-0 right-6 transform -translate-y-1/2 flex gap-2">
+                <div className="absolute top-0 right-6 transform -translate-y-1/2 flex gap-2 z-20">
                   <span className="bg-gradient-to-r from-orange-500 to-pink-500 text-white text-[10px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full shadow-lg border border-white/10">
                     {t(plan.badgeKey)}
                   </span>
