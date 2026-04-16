@@ -1,27 +1,24 @@
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
 import { Container } from "../components/ui/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { Card } from "../components/ui/Card";
-import { Button } from "../components/ui/Button";
-import { Check } from "lucide-react";
 import { mockData } from "../data/mockData";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 export function PricingSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="pricing" className="py-24 bg-surface relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-3xl" />
-      
+    <section id="pricing" className="relative overflow-hidden py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(17,216,210,0.12),transparent_26rem),radial-gradient(circle_at_82%_30%,rgba(30,167,255,0.12),transparent_24rem),linear-gradient(180deg,#07101d_0%,#07101d_50%,#060a14_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
+
       <Container className="relative z-10">
-        <SectionHeading 
-          title={t('pricing.title')} 
-          subtitle={t('pricing.subtitle')} 
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <SectionHeading title={t("pricing.title")} subtitle={t("pricing.subtitle")} />
+
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           {mockData.pricing.map((plan, index) => (
             <motion.div
               key={plan.id}
@@ -29,70 +26,70 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`relative h-full ${plan.popular ? 'md:-mt-4 md:mb-4 z-10' : 'z-0 md:mt-4 mt-4'}`}
+              className={`relative h-full ${plan.popular ? "z-10 md:-mt-4 md:mb-4" : "z-0 mt-4 md:mt-4"}`}
             >
-              {/* Glow effect for popular plan */}
-              {plan.popular && (
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-500 rounded-2xl blur opacity-25 hover:opacity-40 transition duration-1000"></div>
-              )}
-              
-              <Card className={`overflow-visible relative h-full flex flex-col p-8 transition-all hover:-translate-y-2 border ${plan.popular ? 'border-primary-500 shadow-2xl shadow-primary-500/20 bg-surface/90 backdrop-blur-sm' : 'border-border/50 hover:border-primary-500/30 shadow-lg'}`}>
-                
-                {/* Visual Badges Container */}
-                <div className="absolute top-0 right-6 transform -translate-y-1/2 flex gap-2 z-20">
-                  <span className="bg-gradient-to-r from-orange-500 to-pink-500 text-white text-[10px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full shadow-lg border border-white/10">
+              {plan.popular ? (
+                <div className="absolute -inset-1 rounded-[30px] bg-gradient-to-r from-primary-500/60 to-accent-500/50 blur-xl opacity-70 transition duration-700" />
+              ) : null}
+
+              <Card
+                className={`relative flex h-full flex-col overflow-visible border p-8 transition-all hover:-translate-y-2 ${
+                  plan.popular
+                    ? "border-primary-400/35 bg-[#0b1428]/92 shadow-[0_30px_80px_-35px_rgba(17,216,210,0.45)]"
+                    : "border-white/8 bg-[#091221]/88"
+                }`}
+              >
+                <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_28%)]" />
+
+                <div className="absolute right-6 top-0 z-20 flex -translate-y-1/2 gap-2">
+                  <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg md:text-xs">
                     {t(plan.badgeKey)}
                   </span>
-                  {plan.popular && (
-                    <span className="bg-primary-600 shadow-lg shadow-primary-500/30 border border-primary-400/30 text-white text-[10px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full">
-                      {t('pricing.popular')}
+                  {plan.popular ? (
+                    <span className="rounded-full border border-primary-300/25 bg-gradient-to-r from-primary-500 to-accent-500 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-950 shadow-lg shadow-primary-500/35 md:text-xs">
+                      {t("pricing.popular")}
                     </span>
-                  )}
+                  ) : null}
                 </div>
-                
-                {/* Header info */}
-                <div className="mb-6 pt-4">
-                  <h3 className="text-2xl font-extrabold text-foreground mb-3">{t(plan.tierKey)}</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed min-h-[40px]">
-                    {t(plan.descKey)}
-                  </p>
+
+                <div className="relative z-10 mb-6 pt-4">
+                  <div className="mb-4 h-px w-16 bg-gradient-to-r from-primary-400 to-transparent" />
+                  <h3 className="mb-3 text-2xl font-extrabold text-white">{t(plan.tierKey)}</h3>
+                  <p className="min-h-[40px] text-sm leading-relaxed text-white/64">{t(plan.descKey)}</p>
                 </div>
-                
-                {/* Pricing Block */}
-                <div className="mb-8 p-6 rounded-xl bg-background/50 border border-border/50">
+
+                <div className="mb-8 rounded-[24px] border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm">
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium text-foreground/50 line-through mb-1">
+                    <span className="mb-1 text-sm font-medium text-white/35 line-through">
                       {t(plan.priceOriginalKey)}
                     </span>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500 tracking-tight">
+                      <span className="bg-gradient-to-r from-primary-300 via-primary-400 to-accent-400 bg-clip-text text-4xl font-black tracking-tight text-transparent md:text-5xl">
                         {t(plan.pricePromoKey)}
                       </span>
                     </div>
-                    <p className="text-xs font-semibold text-rose-500/90 mt-3 flex items-center gap-1.5 bg-rose-500/10 w-fit px-2.5 py-1 rounded-md">
+                    <p className="mt-3 flex w-fit items-center gap-1.5 rounded-md border border-primary-400/15 bg-primary-500/10 px-2.5 py-1 text-xs font-semibold text-primary-200">
                       {t(plan.urgencyKey)}
                     </p>
                   </div>
                 </div>
-                
-                {/* Features List */}
-                <ul className="space-y-4 mb-8 flex-grow">
+
+                <ul className="mb-8 flex-grow space-y-4">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-foreground/80 group">
-                      <div className="bg-primary-500/10 p-0.5 rounded-full mt-0.5 group-hover:bg-primary-500/20 transition-colors">
-                        <Check className="h-4 w-4 text-primary-500 shrink-0" strokeWidth={3} />
+                    <li key={i} className="group flex items-start gap-3 text-white/80">
+                      <div className="mt-0.5 rounded-full border border-primary-400/18 bg-primary-500/10 p-1 transition-colors group-hover:bg-primary-500/18">
+                        <Check className="h-4 w-4 shrink-0 text-primary-300" strokeWidth={3} />
                       </div>
-                      <span className="text-sm font-medium">{t(feature)}</span>
+                      <span className="text-sm font-medium text-white/76">{t(feature)}</span>
                     </li>
                   ))}
                 </ul>
-                
-                {/* CTA Button */}
-                <div className="pt-2 mt-auto">
-                  <Button 
-                    variant={plan.popular ? 'primary' : 'outline'} 
-                    className={`w-full group overflow-hidden relative shadow-lg ${plan.popular ? 'shadow-primary-500/30' : ''}`}
-                    onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+
+                <div className="mt-auto pt-2">
+                  <Button
+                    variant={plan.popular ? "primary" : "outline"}
+                    className={`relative w-full overflow-hidden shadow-lg ${plan.popular ? "shadow-primary-500/30" : ""}`}
+                    onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
                     size="lg"
                   >
                     <span className="relative z-10 flex items-center gap-2 font-bold tracking-wide">

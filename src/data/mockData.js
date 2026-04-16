@@ -1,135 +1,143 @@
-import { Code, Smartphone, Globe, Layers, Zap, PenTool } from 'lucide-react';
+import {
+  ArrowRightLeft,
+  BriefcaseBusiness,
+  LayoutTemplate,
+  MessageSquareReply,
+  MonitorCog,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 export const mockData = {
   personalInfo: {
     name: "Jose Magdiel Aracena",
+    brand: "MGtechAD",
     email: "mgtechad@gmail.com",
-    phone: "849-627-3605"
+    phone: "+1 (849) 627-3605",
   },
-  services: [
+  offers: [
+    {
+      id: "landing",
+      nameKey: "offers.landing.name",
+      promiseKey: "offers.landing.promise",
+      descriptionKey: "offers.landing.description",
+      deliverables: [
+        "offers.landing.deliverable_1",
+        "offers.landing.deliverable_2",
+        "offers.landing.deliverable_3",
+      ],
+      startingPriceKey: "offers.landing.starting_price",
+      rangeKey: "offers.landing.range",
+      timelineKey: "offers.landing.timeline",
+      termsKey: "offers.landing.terms",
+      icon: LayoutTemplate,
+      accent: "from-[#0f172a] via-[#12314b] to-[#1f8fa9]",
+      subjectValue: "landing",
+    },
+    {
+      id: "website",
+      nameKey: "offers.website.name",
+      promiseKey: "offers.website.promise",
+      descriptionKey: "offers.website.description",
+      deliverables: [
+        "offers.website.deliverable_1",
+        "offers.website.deliverable_2",
+        "offers.website.deliverable_3",
+      ],
+      startingPriceKey: "offers.website.starting_price",
+      rangeKey: "offers.website.range",
+      timelineKey: "offers.website.timeline",
+      termsKey: "offers.website.terms",
+      icon: BriefcaseBusiness,
+      accent: "from-[#102032] via-[#133a4f] to-[#4aa8bd]",
+      subjectValue: "website",
+    },
+    {
+      id: "system",
+      nameKey: "offers.system.name",
+      promiseKey: "offers.system.promise",
+      descriptionKey: "offers.system.description",
+      deliverables: [
+        "offers.system.deliverable_1",
+        "offers.system.deliverable_2",
+        "offers.system.deliverable_3",
+      ],
+      startingPriceKey: "offers.system.starting_price",
+      rangeKey: "offers.system.range",
+      timelineKey: "offers.system.timeline",
+      termsKey: "offers.system.terms",
+      icon: MonitorCog,
+      accent: "from-[#0b1324] via-[#162e45] to-[#1d7fa3]",
+      subjectValue: "system",
+    },
+  ],
+  trust: [
     {
       id: 1,
-      title: "services.s1_title",
-      description: "services.s1_desc",
-      icon: Globe,
+      titleKey: "trust.promise_1.title",
+      descriptionKey: "trust.promise_1.description",
+      icon: MessageSquareReply,
     },
     {
       id: 2,
-      title: "services.s2_title",
-      description: "services.s2_desc",
-      icon: Smartphone,
+      titleKey: "trust.promise_2.title",
+      descriptionKey: "trust.promise_2.description",
+      icon: Sparkles,
     },
     {
       id: 3,
-      title: "services.s3_title",
-      description: "services.s3_desc",
-      icon: Layers,
+      titleKey: "trust.promise_3.title",
+      descriptionKey: "trust.promise_3.description",
+      icon: Rocket,
     },
     {
       id: 4,
-      title: "services.s4_title",
-      description: "services.s4_desc",
-      icon: Zap,
-    }
+      titleKey: "trust.promise_4.title",
+      descriptionKey: "trust.promise_4.description",
+      icon: ShieldCheck,
+    },
   ],
-  projects: [
+  processSteps: [
     {
       id: 1,
-      titleKey: "portfolio.p1_title",
-      categoryKey: "portfolio.category_web",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      link: "#"
+      titleKey: "trust.step_1.title",
+      descriptionKey: "trust.step_1.description",
+      icon: MessageSquareReply,
     },
     {
       id: 2,
-      titleKey: "portfolio.p2_title",
-      categoryKey: "portfolio.category_saas",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      link: "#"
+      titleKey: "trust.step_2.title",
+      descriptionKey: "trust.step_2.description",
+      icon: ArrowRightLeft,
     },
     {
       id: 3,
-      titleKey: "portfolio.p3_title",
-      categoryKey: "portfolio.category_mobile",
-      image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
-      link: "#"
-    }
-  ],
-  process: [
-    {
-      step: "01",
-      title: "process.p1_title",
-      description: "process.p1_desc"
+      titleKey: "trust.step_3.title",
+      descriptionKey: "trust.step_3.description",
+      icon: Rocket,
     },
-    {
-      step: "02",
-      title: "process.p2_title",
-      description: "process.p2_desc"
-    },
-    {
-      step: "03",
-      title: "process.p3_title",
-      description: "process.p3_desc"
-    },
-    {
-      step: "04",
-      title: "process.p4_title",
-      description: "process.p4_desc"
-    }
-  ],
-  pricing: [
-    {
-      id: "basic",
-      tierKey: "pricing.p1_tier",
-      descKey: "pricing.p1_desc",
-      priceOriginalKey: "pricing.p1_price_original",
-      pricePromoKey: "pricing.p1_price_promo",
-      urgencyKey: "pricing.p1_urgency",
-      badgeKey: "pricing.p1_badge",
-      ctaKey: "pricing.p1_cta",
-      features: [
-        "pricing.p1_f1",
-        "pricing.p1_f2",
-        "pricing.p1_f3",
-        "pricing.p1_f4",
-        "pricing.p1_f5"
-      ],
-      popular: false
-    },
-    {
-      id: "pro",
-      tierKey: "pricing.p2_tier",
-      descKey: "pricing.p2_desc",
-      priceOriginalKey: "pricing.p2_price_original",
-      pricePromoKey: "pricing.p2_price_promo",
-      urgencyKey: "pricing.p2_urgency",
-      badgeKey: "pricing.p2_badge",
-      ctaKey: "pricing.p2_cta",
-      features: [
-        "pricing.p2_f1",
-        "pricing.p2_f2",
-        "pricing.p2_f3",
-        "pricing.p2_f4",
-        "pricing.p2_f5"
-      ],
-      popular: true
-    }
-  ],
-  testimonials: [
-    // Supabase handles this natively now
   ],
   faq: [
     {
       question: "faq.q1",
-      answer: "faq.a1"
+      helper: "faq.q1_helper",
+      answer: "faq.a1",
     },
     {
       question: "faq.q2",
-      answer: "faq.a2"
+      helper: "faq.q2_helper",
+      answer: "faq.a2",
     },
     {
       question: "faq.q3",
-      answer: "faq.a3"
-    }
-  ]
+      helper: "faq.q3_helper",
+      answer: "faq.a3",
+    },
+    {
+      question: "faq.q4",
+      helper: "faq.q4_helper",
+      answer: "faq.a4",
+    },
+  ],
 };

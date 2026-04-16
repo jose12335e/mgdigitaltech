@@ -1,114 +1,218 @@
+import { motion } from "framer-motion";
+import { ArrowUpRight, Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
 import { Container } from "../components/ui/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { Card } from "../components/ui/Card";
 import { mockData } from "../data/mockData";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { Code2, MonitorSmartphone, Rocket, ShieldCheck } from "lucide-react";
 
 export function ServicesSection() {
   const { t } = useTranslation();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+  const handleOfferClick = (subjectValue) => {
+    window.dispatchEvent(new CustomEvent("offer:selected", { detail: { subjectValue } }));
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
-
-  const benefits = [
-    {
-      title: t('benefits.b1_title'),
-      description: t('benefits.b1_desc'),
-      icon: Code2
-    },
-    {
-      title: t('benefits.b2_title'),
-      description: t('benefits.b2_desc'),
-      icon: MonitorSmartphone
-    },
-    {
-      title: t('benefits.b3_title'),
-      description: t('benefits.b3_desc'),
-      icon: Rocket
-    },
-    {
-      title: t('benefits.b4_title'),
-      description: t('benefits.b4_desc'),
-      icon: ShieldCheck
-    }
-  ];
 
   return (
-    <section id="services" className="py-24 bg-background">
+    <section id="services" className="relative py-24">
       <Container>
-        <SectionHeading 
-          title={t('services.title')} 
-          subtitle={t('services.subtitle')} 
-        />
-        
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {mockData.services.map((service) => {
-            const Icon = service.icon;
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,0.22fr)] lg:items-end">
+          <SectionHeading
+            alignment="left"
+            title={t("offers.title")}
+            subtitle={t("offers.subtitle")}
+            className="mb-0"
+          />
+
+          <div className="rounded-[26px] border border-slate-900/8 bg-white/[0.78] px-5 py-5 shadow-[0_18px_50px_-38px_rgba(15,23,42,0.26)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary-600">
+              {t("offers.note_label")}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">{t("offers.note_text")}</p>
+          </div>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 xl:grid-cols-3">
+          {mockData.offers.map((offer, index) => {
+            const Icon = offer.icon;
+            const isFeatured = offer.id === "website";
+
             return (
-              <motion.div key={service.id} variants={itemVariants}>
-                <Card className="h-full p-8 group hover:-translate-y-1">
-                  <div className="h-12 w-12 rounded-lg bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
-                    <Icon className="h-6 w-6" />
+              <motion.div
+                key={offer.id}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Card
+                  className={`flex h-full flex-col rounded-[32px] p-7 ${
+                    isFeatured
+                      ? "border-white/8 bg-[#09111f] text-white shadow-[0_28px_80px_-44px_rgba(15,23,42,0.72)]"
+                      : "border-slate-900/8 bg-white/[0.9]"
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span
+                          className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] ${
+                            isFeatured
+                              ? "border border-primary-400/18 bg-primary-500/10 text-primary-200"
+                              : "border border-slate-900/8 bg-slate-950/4 text-slate-500"
+                          }`}
+                        >
+                          {t("offers.card_label")}
+                        </span>
+                        {isFeatured ? (
+                          <span className="rounded-full border border-primary-400/18 bg-primary-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-200">
+                            {t("offers.featured_badge")}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      <h3
+                        className={`mt-5 text-[1.8rem] font-bold leading-tight ${
+                          isFeatured ? "text-white" : "text-slate-950"
+                        }`}
+                      >
+                        {t(offer.nameKey)}
+                      </h3>
+                      <p
+                        className={`mt-3 max-w-[32rem] text-sm leading-relaxed ${
+                          isFeatured ? "text-white/68" : "text-slate-700"
+                        }`}
+                      >
+                        {t(offer.promiseKey)}
+                      </p>
+                    </div>
+
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${
+                        isFeatured
+                          ? "border border-primary-400/20 bg-primary-500/10 text-primary-200"
+                          : "border border-slate-900/8 bg-slate-950/[0.03] text-slate-700"
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{t(service.title)}</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    {t(service.description)}
-                  </p>
+
+                  <div
+                    className={`mt-7 grid gap-3 rounded-[24px] p-5 ${
+                      isFeatured
+                        ? "border border-white/8 bg-white/[0.04]"
+                        : "border border-slate-900/8 bg-[#f8f5ed]"
+                    }`}
+                  >
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <p
+                          className={`text-xs font-semibold uppercase tracking-[0.22em] ${
+                            isFeatured ? "text-white/42" : "text-slate-500"
+                          }`}
+                        >
+                          {t("offers.starting_label")}
+                        </p>
+                        <p
+                          className={`mt-2 text-[clamp(1.7rem,3.2vw,2.2rem)] font-bold leading-tight ${
+                            isFeatured ? "text-white" : "text-slate-950"
+                          }`}
+                        >
+                          {t(offer.startingPriceKey)}
+                        </p>
+                      </div>
+
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${
+                          isFeatured ? "bg-white text-slate-950" : "bg-slate-950 text-white"
+                        }`}
+                      >
+                        {t(offer.timelineKey)}
+                      </span>
+                    </div>
+
+                    <p className={`text-sm leading-relaxed ${isFeatured ? "text-white/68" : "text-slate-700"}`}>
+                      {t(offer.descriptionKey)}
+                    </p>
+                  </div>
+
+                  <ul className="mt-7 space-y-3">
+                    {offer.deliverables.map((deliverable) => (
+                      <li
+                        key={deliverable}
+                        className={`flex items-start gap-3 text-sm ${
+                          isFeatured ? "text-white/74" : "text-slate-700"
+                        }`}
+                      >
+                        <span
+                          className={`mt-0.5 rounded-full p-1 ${
+                            isFeatured ? "bg-primary-500/14 text-primary-200" : "bg-primary-500/10 text-primary-600"
+                          }`}
+                        >
+                          <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                        </span>
+                        <span>{t(deliverable)}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-7 space-y-2">
+                    <p className={`text-sm ${isFeatured ? "text-white/66" : "text-slate-700"}`}>
+                      {t(offer.rangeKey)}
+                    </p>
+                    <p className={`text-sm ${isFeatured ? "text-white/66" : "text-slate-700"}`}>
+                      {t(offer.termsKey)}
+                    </p>
+                    <p className={`text-xs ${isFeatured ? "text-white/40" : "text-slate-500"}`}>
+                      {t("offers.flex_note")}
+                    </p>
+                  </div>
+
+                  <div className="mt-7 pt-1">
+                    <Button
+                      className="w-full"
+                      size="lg"
+                      variant={isFeatured ? "primary" : "outline"}
+                      onClick={() => handleOfferClick(offer.subjectValue)}
+                    >
+                      {t("offers.cta")}
+                      <ArrowUpRight className="ml-3 h-5 w-5" />
+                    </Button>
+                  </div>
                 </Card>
               </motion.div>
             );
           })}
-        </motion.div>
-
-        {/* --- BENEFITS SECTION (Merged) --- */}
-        <div className="mt-24 pt-16 border-t border-border/50">
-          <SectionHeading 
-            title={t('benefits.title')}
-            subtitle={t('benefits.subtitle')}
-          />
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="h-full p-6 text-center group hover:border-primary-500/50">
-                    <div className="mx-auto h-12 w-12 rounded-full bg-surface flex items-center justify-center mb-4 text-foreground/70 group-hover:text-primary-500 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 transition-all duration-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h4 className="font-bold text-foreground mb-2">{benefit.title}</h4>
-                    <p className="text-sm text-foreground/70">{benefit.description}</p>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.18 }}
+          className="mt-8 rounded-[30px] border border-white/10 bg-[#0b1424] px-6 py-6 text-white shadow-[0_26px_70px_-42px_rgba(15,23,42,0.82)]"
+        >
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-300">
+                {t("offers.addon_label")}
+              </p>
+              <p className="mt-2 text-lg font-semibold">{t("offers.addon_title")}</p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-4 text-sm leading-relaxed text-white/70">
+                {t("offers.addon_desc")}
+              </div>
+              <div className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-4 text-sm leading-relaxed text-white/70">
+                {t("offers.addon_note")}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </section>
   );

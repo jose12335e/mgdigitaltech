@@ -1,15 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-900: #134e4a;
-  
-  --color-accent-50: #f0f9ff;
-  --color-accent-500: #0ea5e9;
-  --color-accent-600: #0284c7;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary-50: #d9f7f4;
+  --color-primary-100: #b7f0eb;
+  --color-primary-500: #14c9c3;
+  --color-primary-600: #0ba6af;
+  --color-primary-900: #0f3846;
+
+  --color-accent-50: #dceeff;
+  --color-accent-500: #2f8bff;
+  --color-accent-600: #1f6fd0;
 
   --color-background: var(--bg-color);
   --color-foreground: var(--text-color);
@@ -20,24 +24,54 @@
 
 @layer base {
   :root {
-    --bg-color: #f8fafc;
-    --text-color: #0f172a;
-    --surface-color: #ffffff;
-    --surface-hover: #f1f5f9;
-    --border-color: #e2e8f0;
+    --bg-color: #f3f0e8;
+    --text-color: #101b2d;
+    --surface-color: rgba(255, 255, 255, 0.86);
+    --surface-hover: rgba(255, 255, 255, 0.96);
+    --border-color: rgba(26, 49, 86, 0.12);
   }
 
-  .dark {
-    --bg-color: #020617;
-    --text-color: #f8fafc;
-    --surface-color: #0f172a;
-    --surface-hover: #1e293b;
-    --border-color: #334155;
+  * {
+    @apply border-border;
   }
-}
 
-@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-300 selection:bg-primary-500/30;
+    @apply bg-background text-foreground antialiased selection:bg-primary-500/25;
+    background-image:
+      radial-gradient(circle at 12% 10%, rgb(20 201 195 / 0.12), transparent 20rem),
+      radial-gradient(circle at 90% 12%, rgb(47 139 255 / 0.08), transparent 24rem),
+      linear-gradient(180deg, #f6f3eb 0%, #f0ede5 46%, #ece8de 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(rgb(16 27 45 / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(16 27 45 / 0.025) 1px, transparent 1px);
+    background-size: 112px 112px;
+    mask-image: radial-gradient(circle at top, black, transparent 78%);
+    opacity: 0.5;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    color: #04111f;
   }
 }

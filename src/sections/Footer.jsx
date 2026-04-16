@@ -1,60 +1,98 @@
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Container } from "../components/ui/Container";
 import { mockData } from "../data/mockData";
-import { Code, Briefcase, Globe } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const { name } = mockData.personalInfo;
+  const { brand, name, email, phone } = mockData.personalInfo;
   const { t } = useTranslation();
+  const whatsappUrl = `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(t("whatsapp.message"))}`;
 
   return (
-    <footer className="bg-surface border-t border-border py-12">
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-border/50">
-          <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-500">
-                {name}
-              </span>
-              <span className="h-2 w-2 rounded-full bg-primary-500 mt-1"></span>
-            </a>
-            <p className="text-foreground/70 max-w-sm">
-              {t('footer.desc')}
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-foreground mb-4">{t('footer.links')}</h4>
-            <ul className="space-y-2">
-              <li><a href="#about" className="text-foreground/70 hover:text-primary-600 transition-colors">{t('navbar.home') === 'Home' ? 'About me' : 'Sobre mí'}</a></li>
-              <li><a href="#services" className="text-foreground/70 hover:text-primary-600 transition-colors">{t('navbar.services')}</a></li>
-              <li><a href="#portfolio" className="text-foreground/70 hover:text-primary-600 transition-colors">{t('navbar.portfolio')}</a></li>
-              <li><a href="#contact" className="text-foreground/70 hover:text-primary-600 transition-colors">{t('navbar.contact')}</a></li>
-            </ul>
-          </div>
+    <footer className="relative overflow-hidden border-t border-white/8 bg-[#04070d] py-12">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(20,201,195,0.1),transparent_20rem),radial-gradient(circle_at_82%_18%,rgba(47,139,255,0.08),transparent_24rem)]" />
 
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Social</h4>
-            <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-background flex items-center justify-center text-foreground hover:bg-primary-500 hover:text-white transition-colors border border-border">
-                <Code className="h-5 w-5" />
+      <Container className="relative z-10">
+        <div className="mb-8 rounded-[28px] border border-white/8 bg-white/[0.03] p-6 shadow-[0_22px_60px_-40px_rgba(15,23,42,0.75)]">
+          <div className="grid gap-8 md:grid-cols-[minmax(0,0.55fr)_minmax(0,0.45fr)] md:items-end">
+            <div>
+              <a href="#home" className="mb-4 flex items-center gap-2">
+                <span className="font-display bg-gradient-to-r from-primary-300 via-primary-400 to-accent-400 bg-clip-text text-2xl font-bold text-transparent">
+                  {brand}
+                </span>
+                <span className="mt-1 h-2 w-2 rounded-full bg-primary-400 shadow-[0_0_14px_rgba(20,201,195,0.7)]" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-background flex items-center justify-center text-foreground hover:bg-[#0077b5] hover:text-white transition-colors border border-border">
-                <Briefcase className="h-5 w-5" />
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-background flex items-center justify-center text-foreground hover:bg-[#E1306C] hover:text-white transition-colors border border-border">
-                <Globe className="h-5 w-5" />
-              </a>
+              <p className="max-w-xl text-sm leading-relaxed text-white/60">{t("footer.desc")}</p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[22px] border border-white/8 bg-white/[0.04] px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary-300">
+                  {t("footer.links")}
+                </p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <a href="#services" className="text-white/62 transition-colors hover:text-primary-300">
+                    {t("navbar.services")}
+                  </a>
+                  <a href="#process" className="text-white/62 transition-colors hover:text-primary-300">
+                    {t("navbar.process")}
+                  </a>
+                  <a href="#faq" className="text-white/62 transition-colors hover:text-primary-300">
+                    {t("navbar.faq")}
+                  </a>
+                  <a href="#contact" className="text-white/62 transition-colors hover:text-primary-300">
+                    {t("navbar.contact")}
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-[22px] border border-white/8 bg-white/[0.04] px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary-300">
+                  {t("footer.contact_shortcuts")}
+                </p>
+                <div className="mt-4 flex gap-3">
+                  <a
+                    href={`mailto:${email}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white transition-colors hover:bg-primary-500 hover:text-slate-950"
+                    aria-label={t("footer.email_cta")}
+                    title={t("footer.email_cta")}
+                  >
+                    <Mail className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white transition-colors hover:bg-[#25D366] hover:text-slate-950"
+                    aria-label={t("footer.whatsapp_cta")}
+                    title={t("footer.whatsapp_cta")}
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={`tel:${phone.replace(/\D/g, "")}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white transition-colors hover:bg-accent-500 hover:text-slate-950"
+                    aria-label={t("footer.call_cta")}
+                    title={t("footer.call_cta")}
+                  >
+                    <Phone className="h-5 w-5" />
+                  </a>
+                </div>
+
+                <p className="mt-4 text-sm text-white/50">
+                  {t("footer.signature")} <span className="text-white/68">{name}</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-foreground/50">
-          <p>© {currentYear} {name}. {t('footer.rights')}</p>
-          <p className="mt-2 md:mt-0 flex items-center gap-1">
-            {t('footer.built')}
+
+        <div className="flex flex-col items-center justify-between gap-2 text-sm text-white/40 md:flex-row">
+          <p>
+            &copy; {currentYear} {brand}. {t("footer.rights")}
           </p>
+          <p>{t("footer.built")}</p>
         </div>
       </Container>
     </footer>

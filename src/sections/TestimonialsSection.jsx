@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Loader2, MessageSquarePlus, Quote } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { TestimonialModal } from "../components/TestimonialModal";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
 import { Container } from "../components/ui/Container";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { Card } from "../components/ui/Card";
-import { Button } from "../components/ui/Button";
-import { Quote, Loader2, MessageSquarePlus } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "../lib/supabase";
-import { TestimonialModal } from "../components/TestimonialModal";
-import { useTranslation } from "react-i18next";
 
 export function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState([]);
@@ -15,76 +15,92 @@ export function TestimonialsSection() {
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation();
+  const hasTestimonialsBackend = Boolean(supabase);
 
-  // Fallback avatars locally generated based on name
-  const getRandomAvatar = (name) => {
-    return `https://api.dicebear.com/7.x/initials/svg?seed=${name}&backgroundColor=0ea5e9&textColor=ffffff`;
-  };
+  const getRandomAvatar = (name) =>
+    `https://api.dicebear.com/7.x/initials/svg?seed=${name}&backgroundColor=0ea5e9&textColor=ffffff`;
 
-  const fetchTestimonials = async () => {
+  const refreshTestimonials = useCallback(async () => {
+    if (!supabase) {
+      setTestimonials([]);
+      setError(null);
+      setIsLoading(false);
+      return;
+    }
+
     try {
       setIsLoading(true);
       setError(null);
-      const { data, error } = await supabase
+
+      const { data, error: fetchError } = await supabase
         .from("testimonials")
         .select("*")
         .eq("is_approved", true)
         .order("created_at", { ascending: false });
 
-      if (error) throw error;
+      if (fetchError) throw fetchError;
       setTestimonials(data || []);
     } catch (err) {
       console.error("Error fetching testimonials:", err);
-      setError(t('testimonials.error_load', 'No pudimos cargar los testimonios.'));
+      setError(t("testimonials.error_load"));
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [t]);
 
   useEffect(() => {
-    fetchTestimonials();
-  }, []);
+    refreshTestimonials();
+  }, [refreshTestimonials]);
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden" id="Testimonios">
-      <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <SectionHeading 
-            title={t('testimonials.title')} 
-            subtitle={t('testimonials.subtitle')} 
-          />
-          <motion.div
-             initial={{ opacity: 0, x: 20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.5 }}
-             className="flex-shrink-0"
-          >
-            <Button 
-              variant="outline" 
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2"
+    <section className="relative overflow-hidden py-24" id="testimonials">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(17,216,210,0.12),transparent_22rem),linear-gradient(180deg,#07101d_0%,#08111f_60%,#060a14_100%)]" />
+
+      <Container className="relative z-10">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading title={t("testimonials.title")} subtitle={t("testimonials.subtitle")} />
+          {hasTestimonialsBackend ? (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0"
             >
-              <MessageSquarePlus size={18} /> {t('testimonials.leave')}
-            </Button>
-          </motion.div>
+              <Button
+                variant="outline"
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center gap-2"
+              >
+                <MessageSquarePlus size={18} /> {t("testimonials.leave")}
+              </Button>
+            </motion.div>
+          ) : null}
         </div>
-        
+
         {isLoading ? (
-          <div className="flex justify-center items-center py-24">
-            <Loader2 className="w-10 h-10 text-primary-500 animate-spin" />
+          <div className="flex items-center justify-center py-24">
+            <Loader2 className="h-10 w-10 animate-spin text-primary-300" />
           </div>
         ) : error ? (
-           <div className="text-center text-red-500 py-12 bg-red-50 rounded-lg dark:bg-red-900/10 border border-red-500/20">{error}</div>
+          <div className="rounded-[28px] border border-rose-400/15 bg-rose-500/10 py-12 text-center text-rose-200 backdrop-blur-xl">
+            {error}
+          </div>
         ) : testimonials.length === 0 ? (
-           <div className="text-center py-20 px-4 bg-surface rounded-2xl border border-border">
-             <MessageSquarePlus className="w-12 h-12 text-primary-500/50 mx-auto mb-4" />
-             <h3 className="text-lg font-medium text-foreground mb-2">{t('testimonials.empty_title', 'Aún no hay testimonios disponibles')}</h3>
-             <p className="text-foreground/70 mb-6">{t('testimonials.empty_desc', 'Sé el primero en contar tu experiencia trabajando conmigo.')}</p>
-             <Button onClick={() => setIsModalOpen(true)}>{t('testimonials.leave_first', 'Dejar el primer testimonio')}</Button>
-           </div>
+          <div className="rounded-[32px] border border-white/8 bg-white/[0.04] px-4 py-20 text-center shadow-[0_20px_60px_-35px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+            <MessageSquarePlus className="mx-auto mb-4 h-12 w-12 text-primary-300/65" />
+            <h3 className="mb-2 text-lg font-medium text-white">
+              {t(hasTestimonialsBackend ? "testimonials.empty_title" : "testimonials.unavailable_title")}
+            </h3>
+            <p className="mb-6 text-white/62">
+              {t(hasTestimonialsBackend ? "testimonials.empty_desc" : "testimonials.unavailable_desc")}
+            </p>
+            {hasTestimonialsBackend ? (
+              <Button onClick={() => setIsModalOpen(true)}>{t("testimonials.leave_first")}</Button>
+            ) : null}
+          </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -94,20 +110,27 @@ export function TestimonialsSection() {
                 transition={{ delay: index * 0.1 }}
                 className="h-full"
               >
-                <Card className="h-full p-8 relative flex flex-col">
-                  <Quote className="absolute top-6 right-6 h-10 w-10 text-primary-500/10 rotate-180" />
-                  <div className="flex items-center gap-4 mb-6">
-                    <img 
-                      src={getRandomAvatar(testimonial.name)} 
-                      alt={testimonial.name} 
-                      className="h-14 w-14 rounded-full object-cover ring-2 ring-primary-500/20"
+                <Card className="relative flex h-full flex-col bg-white/[0.04] p-8">
+                  <Quote className="absolute right-6 top-6 h-10 w-10 rotate-180 text-primary-400/12" />
+                  <div className="mb-6 flex items-center gap-4">
+                    <img
+                      src={getRandomAvatar(testimonial.name)}
+                      alt={testimonial.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-14 w-14 rounded-full object-cover ring-2 ring-primary-400/30"
                     />
                     <div>
-                      <h4 className="text-base font-bold text-foreground">{testimonial.name}</h4>
-                      <span className="text-sm text-primary-600 dark:text-primary-400 block truncate max-w-[200px]" title={testimonial.role}>{testimonial.role}</span>
+                      <h4 className="text-base font-bold text-white">{testimonial.name}</h4>
+                      <span
+                        className="block max-w-[200px] truncate text-sm text-primary-300"
+                        title={testimonial.role}
+                      >
+                        {testimonial.role}
+                      </span>
                     </div>
                   </div>
-                  <p className="text-foreground/80 leading-relaxed italic relative z-10 flex-grow text-sm md:text-base">
+                  <p className="relative z-10 flex-grow text-sm italic leading-relaxed text-white/72 md:text-base">
                     "{testimonial.text}"
                   </p>
                 </Card>
@@ -117,10 +140,10 @@ export function TestimonialsSection() {
         )}
       </Container>
 
-      <TestimonialModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        onSuccess={fetchTestimonials}
+      <TestimonialModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSuccess={() => refreshTestimonials()}
       />
     </section>
   );

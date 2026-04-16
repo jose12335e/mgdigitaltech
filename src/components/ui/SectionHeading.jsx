@@ -1,25 +1,45 @@
-import { cn } from "../../utils/cn";
 import { motion } from "framer-motion";
+import { cn } from "../../utils/cn";
 
-export function SectionHeading({ title, subtitle, className, alignment = "center" }) {
+export function SectionHeading({
+  title,
+  subtitle,
+  className,
+  alignment = "center",
+  tone = "default",
+}) {
+  const isInverse = tone === "inverse";
+
   return (
-    <div className={cn("mb-12", alignment === "center" ? "text-center mx-auto" : "text-left", className)}>
-      {subtitle && (
-        <motion.span 
+    <div
+      className={cn(
+        "mb-12",
+        alignment === "center" ? "mx-auto text-center" : "text-left",
+        className
+      )}
+    >
+      {subtitle ? (
+        <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-primary-600 dark:text-primary-500 font-semibold tracking-wider uppercase text-sm mb-3 block"
+          className={cn(
+            "mb-3 block text-sm font-semibold uppercase tracking-[0.24em]",
+            isInverse ? "text-primary-300" : "text-primary-600"
+          )}
         >
           {subtitle}
         </motion.span>
-      )}
-      <motion.h2 
+      ) : null}
+      <motion.h2
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
+        className={cn(
+          "font-display text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl",
+          isInverse ? "text-white" : "text-slate-950"
+        )}
       >
         {title}
       </motion.h2>
